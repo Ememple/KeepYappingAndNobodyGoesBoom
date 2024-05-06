@@ -7,14 +7,7 @@ public class MainMenu extends JFrame implements ActionListener {
     Button manualButton;
 
     public MainMenu(){
-        defuserButton = new Button();
-        manualButton = new Button();
-        defuserButton.setBounds(500, 500, 20, 10);
-        manualButton.setBounds(500, 500, 20, 10);
-        defuserButton.addActionListener(this);
-        manualButton.addActionListener(this);
-        defuserButton.setVisible(true);
-        manualButton.setVisible(true);
+
 
         setTitle("Keep yapping and nobody goes BOOM!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,6 +19,17 @@ public class MainMenu extends JFrame implements ActionListener {
 
         ImageIcon icon = new ImageIcon("icon.jpg");
         setIconImage(icon.getImage());
+
+        defuserButton = new Button();
+        manualButton = new Button();
+        defuserButton.setBounds(getWidth()/2, getHeight()/2, 200, 100);
+        manualButton.setBounds(getWidth()/2, getHeight()/2, 200, 100);
+        defuserButton.addActionListener(this);
+        manualButton.addActionListener(this);
+        defuserButton.setText("DEFUSER");
+        manualButton.setText("MANUAL");
+        defuserButton.setVisible(true);
+        manualButton.setVisible(true);
 
         add(defuserButton);
         add(manualButton);
