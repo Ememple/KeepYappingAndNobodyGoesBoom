@@ -8,7 +8,6 @@ public class ButtonPlay extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Bomb bomb = new Bomb();
         bomb.start();
-
     }
 
     public ButtonPlay(String text) {
