@@ -1,9 +1,34 @@
 import javax.swing.*;
 import java.awt.*;
-public class Menu{
+public class Menu extends JFrame{
+    JLabel label;
+    ImageIcon imageIcon;
+    JPanel mainPanel;
+    JLabel gameName;
+    ButtonPlay buttonPlay;
+    ButtonManual buttonManual;
+
+    public Menu(){
+        label = new JLabel("Keep Yapping And Nobody Goes BOOM!");
+        imageIcon = new ImageIcon("imageIcon.jpg");
+        mainPanel = new JPanel();
+        gameName = new JLabel();
+        buttonPlay = new ButtonPlay("Defuse bomb");
+        buttonManual = new ButtonManual("Manual");
+
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setSize(JFrame.MAXIMIZED_HORIZ,JFrame.MAXIMIZED_VERT);
+        setResizable(true);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setIconImage(imageIcon.getImage());
+        setTitle(label.getText());
+    }
+
     public void createMenu(){
-        JFrame mainFrame = new JFrame();
-        JLabel label = new JLabel("Keep Talking And Nobody Explodes");
+        /*
+        //JFrame mainFrame = new JFrame();
+        JLabel label = new JLabel("Keep Yapping And Nobody Goes BOOM!");
         ImageIcon imageIcon = new ImageIcon("imageIcon.jpg");
         JPanel mainPanel = new JPanel();
         JLabel gameName = new JLabel();
@@ -17,7 +42,7 @@ public class Menu{
         mainFrame.setLayout(null);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setIconImage(imageIcon.getImage());
-        mainFrame.setTitle(label.getText());
+        mainFrame.setTitle(label.getText());*/
 
         //Main panel
         mainPanel.setBackground(Color.BLACK);
@@ -25,7 +50,7 @@ public class Menu{
         mainPanel.setBounds(0,0,1920,1080);
 
         //Label gameName
-        gameName.setText("Keep Talking And Nobody Explodes");
+        gameName.setText("Keep Yapping And Nobody Goes BOOM!");
         gameName.setBounds((1920/2-400),(1080/2-300),800,50);
         gameName.setFont(new Font("Calibri",Font.BOLD,50));
         gameName.setForeground(Color.WHITE);
@@ -48,7 +73,9 @@ public class Menu{
         mainPanel.add(buttonPlay);
 
 
-        mainFrame.add(mainPanel);
-        mainFrame.setVisible(true);
+        /*mainFrame.add(mainPanel);
+        mainFrame.setVisible(true);*/
+        add(mainPanel);
+        setVisible(true);
     }
 }
