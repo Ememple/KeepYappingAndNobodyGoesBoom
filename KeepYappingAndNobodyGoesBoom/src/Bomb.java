@@ -19,10 +19,7 @@ public class Bomb extends JFrame {
 
     public void start(){
         for (int i = 0; i < 6; i++) {
-            panels.add(new JPanel());
-            panels.get(i).setLayout(new BorderLayout());
-            randomModule(panels.get(i));
-            panels.get(i).setVisible(true);
+            add(randomModule());
         }
         //panels.getLast().add(timer());
         for (int i = 0; i < panels.size(); i++) {
@@ -31,30 +28,16 @@ public class Bomb extends JFrame {
         setVisible(true);
     }
 
-    public void randomModule(JPanel panel){
+    public Component randomModule(){
         Random random = new Random();
         switch (random.nextInt(0,5)+1){
             case 1 -> {
                 //dráty
-                JButton yellow = new JButton();
-                yellow.setText("cut wire");
-                yellow.setBackground(Color.YELLOW);
-                yellow.setVisible(true);
-                JButton blue = new JButton();
-                blue.setText("cut wire");
-                blue.setBackground(Color.BLUE);
-                blue.setVisible(true);
-                JButton red = new JButton();
-                red.setText("cut wire");
-                red.setBackground(Color.RED);
-                red.setVisible(true);
-                panel.add(yellow);
-                panel.add(blue);
-                panel.add(red);
+                return new Wires();
             }
             case 2 -> {
-                //tlačítko //jsem cooked, Fíla nepomáhá
-                //panel.add();
+                //tlačítko
+
             }
             case 3 -> {
 
@@ -66,9 +49,7 @@ public class Bomb extends JFrame {
 
             }
         }
+
+        return null;
     }
-
-    /*public Timer timer(){
-
-    }*/
 }
