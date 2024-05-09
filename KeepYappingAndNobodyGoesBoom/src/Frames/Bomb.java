@@ -3,23 +3,22 @@ package Frames;
 import Modules.*;
 import Modules.Button;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
 public class Bomb extends Frame {
 
     public Bomb(){
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setSize(JFrame.MAXIMIZED_HORIZ,JFrame.MAXIMIZED_VERT);
-        setResizable(true);
-        setLayout(new GridLayout(2,3,5,5));
+        super();
+        setLayout(new GridLayout(2,3,10,10));
         setVisible(true);
     }
 
     public void start(){
+
         for (int i = 0; i < 6; i++) {
+            Component test = randomModule();
+            if (test != null) continue;
             add(randomModule());
         }
         setVisible(true);
@@ -37,16 +36,15 @@ public class Bomb extends Frame {
                 return new Button();
             }
             case 3 -> {
-
+                //modul 3
             }
             case 4 -> {
-
+                //modul 4
             }
             case 5 -> {
-
+                //modul 5
             }
         }
-
         return null;
     }
 }

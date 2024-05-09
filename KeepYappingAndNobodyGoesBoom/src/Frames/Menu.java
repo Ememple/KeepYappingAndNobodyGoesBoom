@@ -11,16 +11,12 @@ public class Menu extends Frame{
     private ButtonManual buttonManual;
 
     public Menu(){
+        super();
         mainPanel = new JPanel();
         gameName = new JLabel();
         buttonPlay = new ButtonPlay("Defuse bomb");
         buttonManual = new ButtonManual("Manual");
-
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setSize(JFrame.MAXIMIZED_HORIZ,JFrame.MAXIMIZED_VERT);
-        setResizable(true);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void createMenu(){
