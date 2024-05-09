@@ -6,30 +6,41 @@ import Modules.Button;
 import java.awt.*;
 import java.util.Random;
 
-public class Bomb extends Frame {
+import javax.swing.*;
+import java.awt.*;
 
-    public Bomb(){
-        super();
-        setLayout(new GridLayout(2,3,10,10));
-        setVisible(true);
-    }
-
+public class Bomb {
     public void start(){
+        JFrame bomb = new JFrame();
+        bomb.setBackground(Color.WHITE);
+        bomb.setSize(1000,1000);
+        bomb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bomb.setLayout(new GridLayout(2,3));
+        BombTimer bombTimer = new BombTimer();
 
-        for (int i = 0; i < 6; i++) {
-            Component test = randomModule();
-            if (test != null) continue;
-            add(randomModule());
-        }
-        setVisible(true);
+        JPanel panel1 = new JPanel();
+        panel1.setBackground(Color.MAGENTA);
+        JPanel panel2 = new JPanel();
+        panel2.setBackground(Color.PINK);
+        JPanel panel3 = new JPanel();
+        panel3.setBackground(Color.ORANGE);
+        JPanel panel4 = new JPanel();
+        panel4.setBackground(Color.YELLOW);
+        bomb.add(bombTimer);
+        bomb.add(panel1);
+        bomb.add(panel2);
+        bomb.add(panel3);
+        bomb.add(panel4);
+        bomb.setVisible(true);
     }
+
 
     public Component randomModule(){
         Random random = new Random();
         switch (random.nextInt(0,5)+1){
             case 1 -> {
                 //dráty
-                return new Wires();
+
             }
             case 2 -> {
                 //tlačítko
