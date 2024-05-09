@@ -1,16 +1,16 @@
+package Frames;
+
+import Frames.MenuButtons.*;
+
 import javax.swing.*;
 import java.awt.*;
-public class Menu extends JFrame{
-    private JLabel label;
-    private ImageIcon imageIcon;
+public class Menu extends Frame{
     private JPanel mainPanel;
     private JLabel gameName;
     private ButtonPlay buttonPlay;
     private ButtonManual buttonManual;
 
     public Menu(){
-        label = new JLabel("Keep Yapping And Nobody Goes BOOM!");
-        imageIcon = new ImageIcon("imageIcon.jpg");
         mainPanel = new JPanel();
         gameName = new JLabel();
         buttonPlay = new ButtonPlay("Defuse bomb");
@@ -21,8 +21,6 @@ public class Menu extends JFrame{
         setResizable(true);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setIconImage(imageIcon.getImage());
-        setTitle(label.getText());
     }
 
     public void createMenu(){
@@ -74,7 +72,7 @@ public class Menu extends JFrame{
         buttonManual();
 
         /*
-        //Button bomb
+        //Button play
         buttonPlay.addActionListener(buttonPlay);
         buttonPlay.setBounds((1920/2-100),(1080/2-200),200,100);
         buttonPlay.setFont(new Font("Calibri",Font.BOLD,25));
