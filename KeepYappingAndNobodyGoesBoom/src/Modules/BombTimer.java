@@ -11,6 +11,7 @@ public class BombTimer extends JPanel{
     int elapsedTime=300000;
     String secondsString = String.format("%02d", seconds);
     String minutesString = String.format("%02d", minutes);
+
     public BombTimer() {
         JLabel timeLabel = new JLabel();
 

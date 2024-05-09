@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Wires {
+
     public JPanel createWireModule(){
         JPanel wireModule = new JPanel();
         wireModule.setBackground(Color.BLACK);

@@ -14,4 +14,7 @@ public abstract class Module extends JPanel {
     public Random getRandom() {
         return random;
     }
+
+    public void createModule(){
+    }
 }

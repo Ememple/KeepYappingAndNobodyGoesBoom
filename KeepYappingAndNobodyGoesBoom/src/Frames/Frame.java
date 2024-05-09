@@ -1,10 +1,10 @@
 package Frames;
-
 import javax.swing.*;
 
 public abstract class Frame extends JFrame {
     private JLabel label;
     private ImageIcon imageIcon;
+
     public Frame(){
         super();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
