@@ -3,6 +3,7 @@ package Frames;
 import Modules.*;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.Random;
 
 public class Bomb extends Frame {
@@ -27,8 +28,10 @@ public class Bomb extends Frame {
                 return new Wires().createWireModule();
             }
             case 2 -> {
-                //tlačítko
-                return new Button();
+                //heslo
+                try {
+                    return new Password();
+                } catch (IOException ignored) {}
             }
             case 3 -> {
                 //modul 3
