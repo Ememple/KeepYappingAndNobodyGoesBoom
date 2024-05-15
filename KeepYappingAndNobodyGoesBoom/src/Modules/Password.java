@@ -17,7 +17,6 @@ public class Password extends Module{
     private char[][] chars;
     private String[] passwords;
     private String password;
-    private JLabel label;
 
     public Password() throws IOException {
         chars = new char[rows][columns];
