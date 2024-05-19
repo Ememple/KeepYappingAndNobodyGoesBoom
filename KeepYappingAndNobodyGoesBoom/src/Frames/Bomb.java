@@ -9,6 +9,9 @@ import javax.swing.*;
 public class Bomb {
     public void start(){
         JFrame bomb = new JFrame();
+        ImageIcon imageIcon = new ImageIcon("imageIcon.jpg");
+        bomb.setTitle("Keep Talking And Nobody Explodes");
+        bomb.setIconImage(imageIcon.getImage());
         bomb.setBackground(Color.WHITE);
         bomb.setExtendedState(JFrame.MAXIMIZED_BOTH);
         bomb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
