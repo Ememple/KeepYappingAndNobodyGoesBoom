@@ -17,8 +17,10 @@ public class Bomb {
         bomb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         bomb.setResizable(false);
         bomb.setLayout(new GridLayout(2,3));
-        BombTimer bombTimer = new BombTimer(bomb);
-
+        BombTimer bombTimer = new BombTimer();
+        HorizontalWires horizontalWires= new HorizontalWires();
+        Thread horizontalWiresThread = new Thread(horizontalWires);
+        horizontalWiresThread.start();
         JPanel panel1 = new JPanel();
         panel1.setBackground(Color.MAGENTA);
         JPanel panel2 = new JPanel();
@@ -28,10 +30,11 @@ public class Bomb {
         JPanel panel4 = new JPanel();
         panel4.setBackground(Color.YELLOW);
         bomb.add(bombTimer);
-        bomb.add(panel1);
+        bomb.add(horizontalWires);
         bomb.add(panel2);
         bomb.add(panel3);
         bomb.add(panel4);
+        bomb.add(panel1);
         bomb.setVisible(true);
     }
 

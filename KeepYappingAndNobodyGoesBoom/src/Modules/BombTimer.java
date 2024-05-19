@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 public class BombTimer extends JPanel{
     int seconds;
     int minutes;
-    int elapsedTime=301000;
+    int elapsedTime=31000;
     String secondsString = String.format("%02d", seconds);
     String minutesString = String.format("%02d", minutes);
-    public BombTimer(JFrame jFrame) {
+    public BombTimer() {
         JLabel timeLabel = new JLabel();
 
         Timer timer = new Timer(100, new ActionListener() {
@@ -28,6 +28,9 @@ public class BombTimer extends JPanel{
                     timeLabel.setText(minutesString + ":" + secondsString );
 
                 }
+                else {
+                    System.exit(0);
+                }
             }
         });
         //Time label
@@ -43,7 +46,6 @@ public class BombTimer extends JPanel{
 
 
 
-        this.setSize(jFrame.getWidth()/6,jFrame.getHeight()/6);
         this.setLayout(new GridBagLayout());
         this.add(timeLabel);
         this.setBackground(new Color(0x262626));
