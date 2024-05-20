@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class BombTimer extends JPanel{
     int seconds;
     int minutes;
-    int elapsedTime=31000;
+    int elapsedTime=301000;
     String secondsString = String.format("%02d", seconds);
     String minutesString = String.format("%02d", minutes);
     public BombTimer() {

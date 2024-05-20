@@ -13,7 +13,6 @@ public class HorizontalWires extends JPanel implements Runnable{
     ArrayList<MyButton> wires = new ArrayList<>();
     int[] correctOrder= new int[5];
     public HorizontalWires() {
-        //vyřešit OutOfMemoryError
         createWires(wires,correctOrder);
         for (int i =0; i<wires.size(); i++){
             this.add(wires.get(i));
@@ -24,7 +23,7 @@ public class HorizontalWires extends JPanel implements Runnable{
     }
     public void createWires(ArrayList<MyButton> wires,int[] correctOrder){
         Random random = new Random();
-        int numberOfWires= 3;//random.nextInt(3,6);
+        int numberOfWires= random.nextInt(3,6);
 
         for (int i = 0; i<numberOfWires; i++){
             MyButton button = new MyButton();
@@ -113,6 +112,11 @@ public class HorizontalWires extends JPanel implements Runnable{
     }
     @Override
     public void run() {
-        check(wires,correctOrder);
+        Timer timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                check(wires,correctOrder);
+            }
+        });
     }
 }
