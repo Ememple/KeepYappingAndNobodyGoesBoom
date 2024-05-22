@@ -8,6 +8,11 @@ import java.util.Random;
 import javax.swing.*;
 
 public class Bomb {
+    public static int strikes;
+    public Bomb(){
+        strikes = 0;
+    }
+
     public void start() throws IOException {
         JFrame bomb = new JFrame();
         ImageIcon imageIcon = new ImageIcon("imageIcon.jpg");
