@@ -24,9 +24,11 @@ public class Bomb {
         bomb.setResizable(false);
         bomb.setLayout(new GridLayout(2,3));
         BombTimer bombTimer = new BombTimer(bomb);
-
-        JPanel panel1 = new JPanel();
-        panel1.setBackground(Color.MAGENTA);
+        HorizontalWires horizontalWires= new HorizontalWires();
+        Thread horizontalWiresThread = new Thread(horizontalWires);
+        horizontalWiresThread.start();
+        //JPanel panel1 = new JPanel();
+        //panel1.setBackground(Color.MAGENTA);
         JPanel panel2 = new JPanel();
         panel2.setBackground(Color.PINK);
         JPanel panel3 = new JPanel();
@@ -34,6 +36,8 @@ public class Bomb {
         JPanel panel4 = new JPanel();
         panel4.setBackground(Color.YELLOW);
         bomb.add(bombTimer);
+        bomb.add(horizontalWires);
+        bomb.add(panel2);
         bomb.add(new Password());
         bomb.add(new Memory());
         bomb.add(panel3);
@@ -41,7 +45,8 @@ public class Bomb {
         bomb.setVisible(true);
     }
 
-    public Component randomModule(){
+
+    public Component randomModule() throws IOException{
         Random random = new Random();
         switch (random.nextInt(0,5)+1){
             case 1 -> {
@@ -49,11 +54,12 @@ public class Bomb {
 
             }
             case 2 -> {
-                //tlačítko
-                return new Button();
+                //heslo
+                return new Password();
             }
             case 3 -> {
-                //modul 3
+                //paměť
+                return new Memory();
             }
             case 4 -> {
                 //modul 4
