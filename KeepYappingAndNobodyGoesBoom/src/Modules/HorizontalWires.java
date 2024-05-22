@@ -1,7 +1,7 @@
 package Modules;
 
 import Frames.Bomb;
-import Modules.HorizontalWiresButtons.MyButton;
+import Modules.Buttons.HorizontalWiresButtons.MyButton;
 
 import javax.swing.*;
 import java.awt.*;

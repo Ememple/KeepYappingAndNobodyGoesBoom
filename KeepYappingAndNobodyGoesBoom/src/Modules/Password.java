@@ -1,8 +1,8 @@
 package Modules;
 
-import Modules.PasswordButtons.DownButton;
-import Modules.PasswordButtons.PasswordSB;
-import Modules.PasswordButtons.UpButton;
+import Modules.Buttons.PasswordButtons.DownButton;
+import Modules.Buttons.SubmitButtons.PasswordSB;
+import Modules.Buttons.PasswordButtons.UpButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Password extends Module{
+public class Password extends Module {
     private int length;
     private int[] chars;
     private String[] passwords;
@@ -74,11 +74,13 @@ public class Password extends Module{
 
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
-            constraints.fill = GridBagConstraints.BOTH;
+            constraints.fill = GridBagConstraints.VERTICAL;
 
             constraints.weightx = 1;
             constraints.weighty = 1;
-            characters.add(new JLabel("" + password.charAt(chars[i])));
+            JLabel character = new JLabel("" + password.charAt(chars[i]));
+            character.setFont(new Font("monospaced", Font.PLAIN, 30));
+            characters.add(character);
             add(characters.get(i), constraints);
         }
     }
