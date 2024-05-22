@@ -14,16 +14,17 @@ public class HorizontalWires extends JPanel implements Runnable{
     ArrayList<MyButton> wires = new ArrayList<>();
     int[] correctOrder;
     public HorizontalWires() {
-        this.setLayout(new GridLayout(5,1));
+        this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
-    public void createWires(ArrayList<MyButton> wires,int[] correctOrder){
+    public void createWires(ArrayList<MyButton> wires){
         Random random = new Random();
-        int numberOfWires= 3;//random.nextInt(3,6);
+        int numberOfWires=random.nextInt(3,7);
 
         for (int i = 0; i<numberOfWires; i++){
             MyButton button = new MyButton();
+            button.setBorder(BorderFactory.createLineBorder(new Color(0x262626),5,false));
 
             int colour= random.nextInt(5);
             switch (colour){
@@ -94,39 +95,101 @@ public class HorizontalWires extends JPanel implements Runnable{
                     correctOrder[2]=5;
                 }
                 break;
+
             case 4:
+                if (countOfColors.get(0)>1){
+                    correctOrder[3]=5;
+                }
+                else if (wires.get(3).getValue()==2 && countOfColors.get(0)==0) {
+                    correctOrder[0]=5;
+                }
+                else if (countOfColors.get(1)==1) {
+                    correctOrder[0]=5;
+                }
+                else if (countOfColors.get(2)>1) {
+                    correctOrder[3]=5;
+                }
+                else {
+                    correctOrder[1]=5;
+                }
+                break;
+
+            case 5:
+                if (wires.get(4).getValue()==3){
+                    correctOrder[3]=5;
+                }
+                else if (countOfColors.get(0)==1 && countOfColors.get(2)>2) {
+                    correctOrder[0]=5;
+                }
+                else if (countOfColors.get(3)==0) {
+                    correctOrder[1]=5;
+                }
+                else {
+                    correctOrder[0]=5;
+                }
+                break;
+
+            case 6:
+                if (countOfColors.get(2)==0){
+                    correctOrder[2]=5;
+                }
+                else if (countOfColors.get(2)==1 && countOfColors.get(4)>1) {
+                    correctOrder[3]=5;
+                }
+                else if (countOfColors.get(0)==0) {
+                    correctOrder[5]=5;
+                }
+                else {
+                    correctOrder[3]=5;
+                }
                 break;
         }
         return correctOrder;
     }
     public void control(ArrayList<MyButton> wires, int[] correctOrder){
-        for (int j =0; j<correctOrder.length;j++){
-            System.out.println(correctOrder[j]);
-        }
         boolean chill= true;
         for (int i =0; i<wires.size();i++){
             if (wires.get(i).getValue()==correctOrder[i]){
-                System.out.println("GG");
-                for (int j=0; j<this.getComponents().length; j++){
-                    this.getComponent(j).setBackground(Color.GRAY);
-                    this.getComponent(j).setEnabled(false);
-                }
+               chill=true;
             }
             else {
                 chill=false;
-                Bomb.strikePlus();
-                System.out.println("Retard");
             }
+        }
+        if (chill){
+            System.out.println("GG");
+            for (int j=0; j<this.getComponents().length; j++){
+                this.getComponent(j).setBackground(Color.GRAY);
+                this.getComponent(j).setEnabled(false);
+            }
+        }
+        else {
+            Bomb.strikePlus();
+            System.out.println("Retard");
         }
     }
     @Override
     public void run() {
-        createWires(wires,correctOrder);
-        System.out.println("Wires: "+wires.size());
+        createWires(wires);
         check(wires);
+        while (true){
+            int helpNumber=0;
+            if (correctOrder!=null){
+                for (int i=0; i<correctOrder.length;i++){
+                    if (correctOrder[i]==5) {
+                        helpNumber++;
+                    }
+                }
+                if (helpNumber>1){
+                    check(wires);
+                }
+                else {
+                    break;
+                }
+            }
+        }
         for (int i =0; i<wires.size(); i++){
             this.add(wires.get(i));
         }
-
     }
 }

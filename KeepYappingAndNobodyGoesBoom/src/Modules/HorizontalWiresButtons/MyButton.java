@@ -14,5 +14,4 @@ public class MyButton extends JButton{
     public void setValue(int value) {
         this.value = value;
     }
-
 }
