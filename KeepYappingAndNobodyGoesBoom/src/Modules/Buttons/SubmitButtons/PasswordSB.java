@@ -1,9 +1,8 @@
-package Modules.PasswordButtons;
+package Modules.Buttons.SubmitButtons;
 
 import Frames.Bomb;
 import Modules.Module;
 import Modules.Password;
-import Modules.SubmitButton;
 
 import java.awt.event.ActionEvent;
 
