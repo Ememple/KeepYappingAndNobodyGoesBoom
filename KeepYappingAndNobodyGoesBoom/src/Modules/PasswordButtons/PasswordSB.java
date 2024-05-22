@@ -28,7 +28,7 @@ public class PasswordSB extends SubmitButton {
             password.disable();
         } else {
             password.state = Module.State.unSUCCsesful;
-            Bomb.strikes++;
+            Bomb.strikePlus();
         }
     }
 }

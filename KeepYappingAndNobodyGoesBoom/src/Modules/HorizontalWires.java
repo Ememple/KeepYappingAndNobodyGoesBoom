@@ -1,5 +1,6 @@
 package Modules;
 
+import Frames.Bomb;
 import Modules.HorizontalWiresButtons.MyButton;
 
 import javax.swing.*;
@@ -11,29 +12,18 @@ import java.util.Random;
 
 public class HorizontalWires extends JPanel implements Runnable{
     ArrayList<MyButton> wires = new ArrayList<>();
-    int[] correctOrder= new int[5];
+    int[] correctOrder;
     public HorizontalWires() {
-        createWires(wires,correctOrder);
-        for (int i =0; i<wires.size(); i++){
-            this.add(wires.get(i));
-        }
         this.setLayout(new GridLayout(5,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
     public void createWires(ArrayList<MyButton> wires,int[] correctOrder){
         Random random = new Random();
-        int numberOfWires= random.nextInt(3,6);
+        int numberOfWires= 3;//random.nextInt(3,6);
 
         for (int i = 0; i<numberOfWires; i++){
             MyButton button = new MyButton();
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    button.setValue(5);
-                    control(wires,correctOrder);
-                }
-            });
 
             int colour= random.nextInt(5);
             switch (colour){
@@ -58,65 +48,85 @@ public class HorizontalWires extends JPanel implements Runnable{
                     button.setValue(4);
                     break;
             }
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    button.setValue(5);
+                    int[]constant =check(wires);
+                    button.setEnabled(false);
+                    control(wires,constant);
+                }
+            });
             wires.add(button);
         }
     }
-    public int[] check(ArrayList<MyButton> wires, int[] correctOrder){
-
-        ArrayList<Integer> countOfColors = new ArrayList<>();
+    public ArrayList<Integer> countColors(ArrayList<MyButton> wires){
+        ArrayList<Integer> numberOfColors = new ArrayList<>();
+        correctOrder=new int[wires.size()];
+        for (int i =0; i<correctOrder.length; i++){
+            correctOrder[i]=wires.get(i).getValue();
+        }
         int count=0;
         for(int i =0; i<wires.size();i++){
-            for(int j =0; i<wires.size();j++){
+            for(int j =0; j<wires.size();j++){
                 if (wires.get(i).getValue()==i){
                     count++;
                 }
-                countOfColors.add(count);
+                numberOfColors.add(count);
             }
-
         }
+        return numberOfColors;
+    }
+    public int[] check(ArrayList<MyButton> wires){
+        ArrayList<Integer> countOfColors = countColors(wires);
         switch (wires.size()){
             case 3:
                 if (countOfColors.get(0)==0){
-                    if (countOfColors.get(3)==0){
-                        correctOrder[2]=5;
-                    }
-                    else {
-                        correctOrder[1]=5;
-                    }
+                    correctOrder[1]=5;
+                } 
+                else if (wires.get(2).getValue()==4) {
+                    correctOrder[2]=5;
                 }
-                else if (countOfColors.get(0)==1) {
-                    if (countOfColors.get(2)==0){
-                        correctOrder[0]=5;
-                    }
-                    else {
-                        correctOrder[1]=5;
-                    }
+                else if (countOfColors.get(1)>1) {
+                    correctOrder[0]=5;
                 }
                 else {
-                    correctOrder[1]=5;
+                    correctOrder[2]=5;
                 }
                 break;
-            }
+            case 4:
+                break;
+        }
         return correctOrder;
     }
     public void control(ArrayList<MyButton> wires, int[] correctOrder){
+        for (int j =0; j<correctOrder.length;j++){
+            System.out.println(correctOrder[j]);
+        }
         boolean chill= true;
         for (int i =0; i<wires.size();i++){
             if (wires.get(i).getValue()==correctOrder[i]){
+                System.out.println("GG");
+                for (int j=0; j<this.getComponents().length; j++){
+                    this.getComponent(j).setBackground(Color.GRAY);
+                    this.getComponent(j).setEnabled(false);
+                }
             }
             else {
                 chill=false;
-                System.exit(0);
+                Bomb.strikePlus();
+                System.out.println("Retard");
             }
         }
     }
     @Override
     public void run() {
-        Timer timer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                check(wires,correctOrder);
-            }
-        });
+        createWires(wires,correctOrder);
+        System.out.println("Wires: "+wires.size());
+        check(wires);
+        for (int i =0; i<wires.size(); i++){
+            this.add(wires.get(i));
+        }
+
     }
 }
