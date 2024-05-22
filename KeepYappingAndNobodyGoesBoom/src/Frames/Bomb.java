@@ -23,7 +23,7 @@ public class Bomb {
         bomb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         bomb.setResizable(false);
         bomb.setLayout(new GridLayout(2,3));
-        BombTimer bombTimer = new BombTimer(bomb);
+        BombTimer bombTimer = new BombTimer();
         HorizontalWires horizontalWires= new HorizontalWires();
         Thread horizontalWiresThread = new Thread(horizontalWires);
         horizontalWiresThread.start();

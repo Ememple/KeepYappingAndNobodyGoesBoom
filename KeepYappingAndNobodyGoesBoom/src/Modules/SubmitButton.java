@@ -6,8 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SubmitButton extends JButton implements ActionListener {
-    Password password;
+public abstract class SubmitButton extends JButton implements ActionListener {
 
     public SubmitButton(){
         super();
