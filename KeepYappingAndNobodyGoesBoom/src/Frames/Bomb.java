@@ -3,11 +3,12 @@ package Frames;
 import Modules.*;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.Random;
 import javax.swing.*;
 
 public class Bomb {
-    public void start(){
+    public void start() throws IOException {
         JFrame bomb = new JFrame();
         ImageIcon imageIcon = new ImageIcon("imageIcon.jpg");
         bomb.setTitle("Keep Talking And Nobody Explodes");
@@ -28,13 +29,12 @@ public class Bomb {
         JPanel panel4 = new JPanel();
         panel4.setBackground(Color.YELLOW);
         bomb.add(bombTimer);
-        bomb.add(panel1);
-        bomb.add(panel2);
+        bomb.add(new Password());
+        bomb.add(new Memory());
         bomb.add(panel3);
         bomb.add(panel4);
         bomb.setVisible(true);
     }
-
 
     public Component randomModule(){
         Random random = new Random();

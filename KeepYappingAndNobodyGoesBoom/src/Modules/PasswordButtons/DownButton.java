@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 
 public class DownButton extends JButton implements ActionListener {
     public DownButton(){
-        setIcon((Icon) new ImageIcon("downButton.txt").getImage());
+        super();
+        //setIcon((Icon) new ImageIcon("downButton.txt").getImage());
     }
 
     @Override

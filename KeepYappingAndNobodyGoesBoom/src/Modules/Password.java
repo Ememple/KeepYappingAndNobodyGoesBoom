@@ -19,6 +19,7 @@ public class Password extends Module{
     private String password;
 
     public Password() throws IOException {
+        super();
         chars = new char[rows][columns];
         passwords = new String[35];
         addIntoPasswords();
@@ -34,14 +35,14 @@ public class Password extends Module{
     }
 
     public void addIntoPasswords() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("paswords.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("passwords.txt"));
         for (int i = 0; i < passwords.length; i++) {
             passwords[i] = reader.readLine();
         }
     }
 
     public void addIntoChars(){
-        for (int i = 0; i < password.length(); i++) {
+        for (int i = 0; i < password.length()-1; i++) {
             chars[i][0] = password.charAt(i);
         }
 

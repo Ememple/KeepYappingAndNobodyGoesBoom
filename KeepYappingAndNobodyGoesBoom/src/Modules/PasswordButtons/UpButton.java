@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 
 public class UpButton extends JButton implements ActionListener {
     public UpButton(){
-        setIcon((Icon) new ImageIcon("upButton.txt").getImage());
+        super();
+        //setIcon((Icon) new ImageIcon("upButton.txt").getImage());
     }
 
     @Override
