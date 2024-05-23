@@ -18,7 +18,6 @@ public class UpButton extends ModuleButton {
         this.char_index = char_index;
         setBackground(Color.WHITE);
         setIcon(imageIcon);
-        this.addActionListener(this);
     }
 
     @Override
