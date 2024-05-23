@@ -8,7 +8,7 @@ public class Menu{
     public void createMenu(){
         JFrame mainFrame = new JFrame();
         JLabel label = new JLabel("Keep Talking And Nobody Explodes");
-        ImageIcon imageIcon = new ImageIcon("imageIcon.jpg");
+        ImageIcon imageIcon = new ImageIcon("imageIcon.jpg" );//"Symboly/Sloupec 1/1.png"
         JPanel mainPanel = new JPanel();
         JLabel gameName = new JLabel();
         ButtonPlay buttonPlay = new ButtonPlay("Defuse bomb");
