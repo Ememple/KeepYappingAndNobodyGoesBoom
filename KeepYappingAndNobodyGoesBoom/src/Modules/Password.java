@@ -17,7 +17,6 @@ public class Password extends Module {
     private String[] passwords;
     private String password;
     ArrayList<JLabel> characters;
-    LayoutManager layout;
 
     public Password() throws IOException {
         super();
@@ -28,8 +27,7 @@ public class Password extends Module {
         password = passwords[getRandom().nextInt(35)];
         characters = new ArrayList<>();
         addIntoChars();
-        layout = new GridBagLayout();
-        setLayout(layout);
+        setLayout(new GridBagLayout());
         addUpButtons();
         addCharsComponent();
         addDownButtons();
@@ -115,43 +113,16 @@ public class Password extends Module {
         add(new PasswordSB(this), constraints);
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     public int[] getChars() {
         return chars;
-    }
-
-    public void setChars(int[] chars) {
-        this.chars = chars;
     }
 
     public ArrayList<JLabel> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(ArrayList<JLabel> characters) {
-        this.characters = characters;
-    }
-
-    public String[] getPasswords() {
-        return passwords;
-    }
-
-    public void setPasswords(String[] passwords) {
-        this.passwords = passwords;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

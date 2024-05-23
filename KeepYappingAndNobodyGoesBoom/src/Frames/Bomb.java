@@ -35,21 +35,21 @@ public class Bomb {
         HorizontalWires horizontalWires= new HorizontalWires();
         Thread horizontalWiresThread = new Thread(horizontalWires);
         horizontalWiresThread.start();
-        //JPanel panel1 = new JPanel();
-        //panel1.setBackground(Color.MAGENTA);
+        /*JPanel panel1 = new JPanel();
+        panel1.setBackground(Color.MAGENTA);
         JPanel panel2 = new JPanel();
         panel2.setBackground(Color.PINK);
         JPanel panel3 = new JPanel();
         panel3.setBackground(Color.ORANGE);
         JPanel panel4 = new JPanel();
-        panel4.setBackground(Color.YELLOW);
+        panel4.setBackground(Color.YELLOW);*/
         bomb.add(bombTimer);
         bomb.add(horizontalWires);
-        bomb.add(panel2);
+        //bomb.add(panel2);
         bomb.add(new Password());
         bomb.add(new Memory());
-        bomb.add(panel3);
-        bomb.add(panel4);
+        //bomb.add(panel3);
+        //bomb.add(panel4);
         bomb.setVisible(true);
     }
 

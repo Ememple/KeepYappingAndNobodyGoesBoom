@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ModuleButton extends JButton implements ActionListener {
+public abstract class ModuleButton extends JButton implements ActionListener {
     public ModuleButton(){
         super();
         setFocusable(false);
