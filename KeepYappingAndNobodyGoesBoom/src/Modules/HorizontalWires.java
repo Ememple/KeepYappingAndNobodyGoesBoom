@@ -1,7 +1,7 @@
 package Modules;
 
 import Frames.Bomb;
-import Modules.Buttons.HorizontalWiresButtons.MyButton;
+import Modules.Buttons.HorizontalWiresButtons.WireButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class HorizontalWires extends JPanel implements Runnable{
-    ArrayList<MyButton> wires = new ArrayList<>();
+    ArrayList<WireButton> wires = new ArrayList<>();
     int[] correctOrder;
     public HorizontalWires() {
         this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
-    public void createWires(ArrayList<MyButton> wires){
+    public void createWires(ArrayList<WireButton> wires){
         Random random = new Random();
         int numberOfWires=random.nextInt(3,7);
 
         for (int i = 0; i<numberOfWires; i++){
-            MyButton button = new MyButton();
+            WireButton button = new WireButton();
             button.setBorder(BorderFactory.createLineBorder(new Color(0x262626),5,false));
 
             int colour= random.nextInt(5);
@@ -61,7 +61,7 @@ public class HorizontalWires extends JPanel implements Runnable{
             wires.add(button);
         }
     }
-    public ArrayList<Integer> countColors(ArrayList<MyButton> wires){
+    public ArrayList<Integer> countColors(ArrayList<WireButton> wires){
         ArrayList<Integer> numberOfColors = new ArrayList<>();
         correctOrder=new int[wires.size()];
         for (int i =0; i<correctOrder.length; i++){
@@ -78,7 +78,7 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         return numberOfColors;
     }
-    public int[] check(ArrayList<MyButton> wires){
+    public int[] check(ArrayList<WireButton> wires){
         ArrayList<Integer> countOfColors = countColors(wires);
         switch (wires.size()){
             case 3:
@@ -146,7 +146,7 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         return correctOrder;
     }
-    public void control(ArrayList<MyButton> wires, int[] correctOrder){
+    public void control(ArrayList<WireButton> wires, int[] correctOrder){
         boolean chill= true;
         for (int i =0; i<wires.size();i++){
             if (wires.get(i).getValue()==correctOrder[i]){
@@ -165,7 +165,6 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         else {
             Bomb.strikePlus();
-            System.out.println("Retard");
         }
     }
     @Override
