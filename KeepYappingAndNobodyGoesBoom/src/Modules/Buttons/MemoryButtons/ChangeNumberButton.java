@@ -24,7 +24,7 @@ public class ChangeNumberButton extends ModuleButton {
 
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println(memory.getButtons());
+        //System.out.println(memory.getButtons());
         switch(memory.getStage()){
             case 1 -> {
                 switch(memory.getNumberDisplay().getText()){
