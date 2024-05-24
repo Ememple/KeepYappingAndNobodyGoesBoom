@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Memory extends Module{
-    ArrayList<Integer> numbers;
+    private ArrayList<Integer> numbers;
     private JLabel numberDisplay;
     private int stage;
     private HashMap<Integer, ChangeNumberButton> buttons;
@@ -23,12 +23,10 @@ public class Memory extends Module{
         for (int i = 1; i < 5; i++) {
             numbers.add(i);
         }
-        //System.out.println("konstruktor " + numbers);
         addNumberDisplay();
         addChangeNumberButtons();
         mSB = new MemoryStageBar();
         addProgressBar();
-        //chNB = new ChangeNumberButton(this, Integer.parseInt(numberDisplay.getText()));
         setVisible(true);
     }
 

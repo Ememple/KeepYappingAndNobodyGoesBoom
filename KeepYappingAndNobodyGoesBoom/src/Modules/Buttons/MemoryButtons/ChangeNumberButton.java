@@ -24,10 +24,8 @@ public class ChangeNumberButton extends ModuleButton {
 
     @Override
     public void actionPerformed(ActionEvent e){
+        System.out.println(memory.getButtons());
         switch(memory.getStage()){
-            case 6 -> {
-                memory.disable();
-            }
             case 1 -> {
                 switch(memory.getNumberDisplay().getText()){
                     case "1" -> {
@@ -52,7 +50,7 @@ public class ChangeNumberButton extends ModuleButton {
                         }
                     }
                     case "4" -> {
-                        if (position == 3){
+                        if (number == 4){
                             nextStage();
                         }else {
                             resetStage();
@@ -63,7 +61,7 @@ public class ChangeNumberButton extends ModuleButton {
             case 2 ->{
                 switch(memory.getNumberDisplay().getText()){
                     case "1" -> {
-                        if (this.number == memory.getButtons().get(0).number){
+                        if (this.number == memory.getButtons().get(1).number){
                             nextStage();
                         }else {
                             resetStage();
@@ -84,7 +82,7 @@ public class ChangeNumberButton extends ModuleButton {
                         }
                     }
                     case "4" -> {
-                        if (this.position == memory.getButtons().get(0).position){
+                        if (this.position == memory.getButtons().get(1).position){
                             nextStage();
                         }else {
                             resetStage();
@@ -95,21 +93,21 @@ public class ChangeNumberButton extends ModuleButton {
             case 3 ->{
                 switch(memory.getNumberDisplay().getText()){
                     case "1" -> {
-                        if (this.position == memory.getButtons().get(1).position){
+                        if (this.position == memory.getButtons().get(2).position){
                             nextStage();
                         }else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (this.position == memory.getButtons().get(0).position){
+                        if (this.position == memory.getButtons().get(1).position){
                             nextStage();
                         }else {
                             resetStage();
                         }
                     }
                     case "3" -> {
-                        if (position == 0){
+                        if (this.number == memory.getButtons().get(1).number){
                             nextStage();
                         }else {
                             resetStage();
@@ -127,14 +125,14 @@ public class ChangeNumberButton extends ModuleButton {
             case 4 ->{
                 switch(memory.getNumberDisplay().getText()){
                     case "1" -> {
-                        if (this.toString().equals(memory.getButtons().get(2).toString())){
+                        if (this.number == memory.getButtons().get(1).number){
                             nextStage();
                         }else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (this.number == memory.getButtons().get(1).number){
+                        if (this.number == memory.getButtons().get(2).number){
                             nextStage();
                         }else {
                             resetStage();
@@ -148,7 +146,7 @@ public class ChangeNumberButton extends ModuleButton {
                         }
                     }
                     case "4" -> {
-                        if (this.position == memory.getButtons().get(0).position){
+                        if (this.position == memory.getButtons().get(1).position){
                             nextStage();
                         }else {
                             resetStage();
@@ -158,22 +156,29 @@ public class ChangeNumberButton extends ModuleButton {
             }
             case 5 ->{
                 switch(memory.getNumberDisplay().getText()){
-                    case "1", "3" -> {
-                        if (this.number == memory.getButtons().get(0).number){
+                    case "1" -> {
+                        if (this.number == memory.getButtons().get(1).number){
                             nextStage();
                         }else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (this.number == memory.getButtons().get(2).number){
+                        if (this.number == memory.getButtons().get(3).number){
+                            nextStage();
+                        }else {
+                            resetStage();
+                        }
+                    }
+                    case "3" -> {
+                        if (this.position == memory.getButtons().get(1).position){
                             nextStage();
                         }else {
                             resetStage();
                         }
                     }
                     case "4" -> {
-                        if (this.number == memory.getButtons().get(1).number){
+                        if (this.number == memory.getButtons().get(2).number){
                             nextStage();
                         }else {
                             resetStage();
@@ -191,6 +196,9 @@ public class ChangeNumberButton extends ModuleButton {
         memory.setStage(memory.getStage()+1);
         memory.newDisplay();
         memory.getmSB().setValue(memory.getStage()-1);
+        if (memory.getmSB().getValue() == 5){
+            memory.disable();
+        }
     }
 
     public void resetStage(){
