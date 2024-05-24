@@ -29,7 +29,7 @@ public class Bomb {
         bomb.setBackground(Color.WHITE);
         bomb.setExtendedState(JFrame.MAXIMIZED_BOTH);
         bomb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        bomb.setResizable(false);
+        bomb.setResizable(true);
         bomb.setLayout(new GridLayout(2,3));
         BombTimer bombTimer = new BombTimer();
         HorizontalWires horizontalWires= new HorizontalWires();
