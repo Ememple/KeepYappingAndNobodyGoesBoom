@@ -1,7 +1,7 @@
 package Modules;
 
 import Frames.Bomb;
-import Modules.Buttons.HorizontalWiresButtons.WireButton;
+import Modules.Buttons.HorizontalWiresButtons.HorizontalWireButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class HorizontalWires extends JPanel implements Runnable{
-    ArrayList<WireButton> wires = new ArrayList<>();
-    int[] correctOrder;
+    private ArrayList<HorizontalWireButton> wires = new ArrayList<>();
+    private int[] correctOrder;
     public HorizontalWires() {
         this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
-    public void createWires(ArrayList<WireButton> wires){
+    public void createWires(ArrayList<HorizontalWireButton> wires){
         Random random = new Random();
         int numberOfWires=random.nextInt(3,7);
 
         for (int i = 0; i<numberOfWires; i++){
-            WireButton button = new WireButton();
+            HorizontalWireButton button = new HorizontalWireButton();
             button.setBorder(BorderFactory.createLineBorder(new Color(0x262626),5,false));
 
             int colour= random.nextInt(5);
@@ -61,7 +61,7 @@ public class HorizontalWires extends JPanel implements Runnable{
             wires.add(button);
         }
     }
-    public ArrayList<Integer> countColors(ArrayList<WireButton> wires){
+    public ArrayList<Integer> countColors(ArrayList<HorizontalWireButton> wires){
         ArrayList<Integer> numberOfColors = new ArrayList<>();
         correctOrder=new int[wires.size()];
         for (int i =0; i<correctOrder.length; i++){
@@ -78,7 +78,7 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         return numberOfColors;
     }
-    public int[] check(ArrayList<WireButton> wires){
+    public int[] check(ArrayList<HorizontalWireButton> wires){
         ArrayList<Integer> countOfColors = countColors(wires);
         switch (wires.size()){
             case 3:
@@ -146,7 +146,7 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         return correctOrder;
     }
-    public void control(ArrayList<WireButton> wires, int[] correctOrder){
+    public void control(ArrayList<HorizontalWireButton> wires, int[] correctOrder){
         boolean chill= true;
         for (int i =0; i<wires.size();i++){
             if (wires.get(i).getValue()==correctOrder[i]){

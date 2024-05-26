@@ -1,6 +1,7 @@
 package Frames;
 
 import Modules.*;
+import Modules.Buttons.VerticalWiresButton.VerticalWireButton;
 
 import java.awt.*;
 import java.io.IOException;
@@ -36,16 +37,13 @@ public class Bomb {
         Thread horizontalWiresThread = new Thread(horizontalWires);
         horizontalWiresThread.start();
         Symbols symbols = new Symbols();
-        JPanel panel3 = new JPanel();
-        panel3.setBackground(Color.ORANGE);
-        JPanel panel4 = new JPanel();
-        panel4.setBackground(Color.YELLOW);
+        VerticalWires verticalWires = new VerticalWires();
         bomb.add(bombTimer);
         bomb.add(horizontalWires);
         bomb.add(new Password());
         bomb.add(new Memory());
         bomb.add(symbols);
-        bomb.add(panel4);
+        bomb.add(verticalWires);
         bomb.setVisible(true);
     }
 

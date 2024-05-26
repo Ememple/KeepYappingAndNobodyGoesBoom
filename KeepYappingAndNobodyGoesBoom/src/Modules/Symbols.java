@@ -13,9 +13,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Symbols extends JPanel {
-    ArrayList<Integer> usedNumbers = new ArrayList<>();
-    ArrayList<SymbolButton> symbolButtonArrayList = new ArrayList<>();
-    int onButtonNumber =0;
+    private ArrayList<Integer> usedNumbers = new ArrayList<>();
+    private ArrayList<SymbolButton> symbolButtonArrayList = new ArrayList<>();
+    private int onButtonNumber =0;
     public Symbols() {
         try {
             createButtons();
