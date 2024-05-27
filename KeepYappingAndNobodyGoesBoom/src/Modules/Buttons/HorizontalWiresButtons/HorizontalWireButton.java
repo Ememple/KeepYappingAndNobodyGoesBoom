@@ -2,7 +2,7 @@ package Modules.Buttons.HorizontalWiresButtons;
 
 import javax.swing.*;
 
-public class WireButton extends JButton{
+public class HorizontalWireButton extends JButton{
     private int value;
 
     public int getValue() {

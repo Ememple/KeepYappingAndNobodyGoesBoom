@@ -12,4 +12,8 @@ public class SymbolButton extends JButton {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public SymbolButton() {
+        this.value = value;
+    }
 }
