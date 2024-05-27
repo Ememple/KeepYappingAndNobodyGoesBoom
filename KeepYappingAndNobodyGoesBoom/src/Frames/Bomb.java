@@ -45,7 +45,7 @@ public class Bomb {
         bomb.add(new Password());
         bomb.add(new Memory());
         bomb.add(symbols);
-        bomb.add(panel4);
+        bomb.add(new ParameterPresets());
         bomb.setVisible(true);
     }
 
@@ -54,22 +54,16 @@ public class Bomb {
         Random random = new Random();
         switch (random.nextInt(0,5)+1){
             case 1 -> {
-                //dráty
-
             }
             case 2 -> {
-                //heslo
                 return new Password();
             }
             case 3 -> {
-                //paměť
                 return new Memory();
             }
             case 4 -> {
-                //modul 4
             }
             case 5 -> {
-                //modul 5
             }
         }
         return null;
