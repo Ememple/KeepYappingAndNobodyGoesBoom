@@ -16,7 +16,7 @@ public class Bomb {
         }
         else {
             strikes++;
-            System.out.println("Počet chyb"+strikes);
+            System.out.println("Počet chyb "+strikes);
         }
     }
 
@@ -42,6 +42,7 @@ public class Bomb {
         bomb.add(new Memory());
         bomb.add(symbols);
         bomb.add(verticalWires);
+        bomb.add(new ParameterPresets());
         bomb.setVisible(true);
     }
 
@@ -62,7 +63,8 @@ public class Bomb {
                 return new Memory();
             }
             case 4 -> {
-                //modul 4
+                //předvolby parametrů
+                return new ParameterPresets();
             }
             case 5 -> {
                 //modul 5

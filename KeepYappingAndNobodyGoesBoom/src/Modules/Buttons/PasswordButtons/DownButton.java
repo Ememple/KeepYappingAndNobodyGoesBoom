@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class DownButton extends ModuleButton {
-    static ImageIcon imageIcon = new ImageIcon("downButton.png");
+    static ImageIcon imageIcon = new ImageIcon("up and down buttons/downButton.png");
     Password password;
     int char_index;
     public DownButton(Password password, int char_index){
