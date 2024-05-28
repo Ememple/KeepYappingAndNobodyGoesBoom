@@ -1,8 +1,6 @@
 package Frames;
 
 import Modules.*;
-import Modules.Buttons.VerticalWiresButton.VerticalWireButton;
-
 import java.awt.*;
 import java.io.IOException;
 import java.util.Random;

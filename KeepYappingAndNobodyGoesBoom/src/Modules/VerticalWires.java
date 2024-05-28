@@ -51,6 +51,24 @@ public class VerticalWires extends JPanel {
     }
     public void createWires(Random random, int numberOfWires){
         for (int i=0; i<numberOfWires; i++) {
+            int color=random.nextInt(3);
+            switch (color){
+                case 0:
+                    verticalWireButtons.get(i).setValue(0);
+                    verticalWireButtons.get(i).setBackground(Color.RED);
+                    break;
+                case 1:
+                    verticalWireButtons.get(i).setValue(1);
+                    verticalWireButtons.get(i).setBackground(Color.BLUE);
+
+                    break;
+                case 2:
+                    verticalWireButtons.get(i).setValue(2);
+                    verticalWireButtons.get(i).setBackground(Color.WHITE);
+                    break;
+            }
+
+
             GridBagConstraints gridBagConstraints = new GridBagConstraints();
             gridBagConstraints.gridx=i;
             gridBagConstraints.gridy=1;

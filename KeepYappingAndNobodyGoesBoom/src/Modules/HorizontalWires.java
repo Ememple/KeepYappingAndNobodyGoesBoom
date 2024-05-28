@@ -157,7 +157,6 @@ public class HorizontalWires extends JPanel implements Runnable{
             }
         }
         if (chill){
-            System.out.println("GG");
             for (int j=0; j<this.getComponents().length; j++){
                 this.getComponent(j).setBackground(Color.GRAY);
                 this.getComponent(j).setEnabled(false);
