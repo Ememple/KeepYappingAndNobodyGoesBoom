@@ -4,11 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PPPic extends JLabel {
-    ImageIcon icon;
+    private String fileName;
 
     public PPPic(String fileName){
         super();
-        icon = new ImageIcon(fileName);
-        setIcon(icon);
+        this.fileName = fileName;
+        setIcon(new ImageIcon(this.fileName));
+        setVisible(true);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }

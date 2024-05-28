@@ -1,34 +1,26 @@
 package Modules;
 
-import Modules.Buttons.ParameterPresets.*;
-import Modules.PPPic.PPPic;
-
-import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static javax.swing.text.StyleConstants.setIcon;
-
 public class ParameterPresets extends Module{
-    private UpButton up;
-    private DownButton down;
     //private PPPic pic;
-    private ArrayList<String> fileNames = new ArrayList<>();
+    private ArrayList<String> fileNames;
     
     public ParameterPresets(){
         super();
-        up = new UpButton(this);
-        down = new DownButton(this);
+        fileNames = new ArrayList<>();
         createFileNames();
         setLayout(new GridBagLayout());
-        addLabels();
+        addContainers();
         setBackground(Color.WHITE);
         setVisible(true);
+        System.out.println(fileNames);
     }
     
-    public void addLabels(){
+    public void addContainers(){
         GridBagConstraints constraints = new GridBagConstraints();
         for (int i = 0; i < 3; i++) {
             constraints.gridx = i+1;
@@ -40,7 +32,7 @@ public class ParameterPresets extends Module{
             constraints.weightx = 1;
             constraints.weighty = 1;
 
-            add(new PPPic(STR."PPPics/\{fileNames.get(getRandom().nextInt(0, fileNames.size()))}"), constraints);
+            add(new PPContainer(this), constraints);
         }
     }
 
@@ -48,8 +40,12 @@ public class ParameterPresets extends Module{
         String fileName = "PPPics";
         for (final File fileEntry : Objects.requireNonNull(new File(fileName).listFiles())) {
             if (!fileEntry.isDirectory()) {
-                fileNames.add(fileEntry.getName());
+                fileNames.add(fileName + "/" + fileEntry.getName());
             }
         }
+    }
+
+    public ArrayList<String> getFileNames() {
+        return fileNames;
     }
 }

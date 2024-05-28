@@ -18,7 +18,7 @@ public class Bomb {
         }
         else {
             strikes++;
-            System.out.println("Počet chyb"+strikes);
+            System.out.println("Počet chyb "+strikes);
         }
     }
 
