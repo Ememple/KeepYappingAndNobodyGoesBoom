@@ -1,21 +1,19 @@
 package Frames;
 
 import Frames.MenuButtons.*;
+import HelpClasses.FilePath;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class Menu{
     public void createMenu(){
         JFrame mainFrame = new JFrame();
         JLabel label = new JLabel("KeepYappingAndNobodyGoesBOOM");
-        InputStream stream = getClass().getResourceAsStream("/ImageIcon.jpg");
         ImageIcon imageIcon;
         try {
-            imageIcon = new ImageIcon(ImageIO.read(stream));
+            imageIcon = FilePath.imageIcon("/ImageIcon.jpg");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

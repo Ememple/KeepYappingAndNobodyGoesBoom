@@ -1,5 +1,6 @@
 package Frames;
 
+import HelpClasses.FilePath;
 import Modules.*;
 import java.awt.*;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class Bomb {
 
     public void start() throws IOException {
         JFrame bomb = new JFrame();
-        ImageIcon imageIcon = new ImageIcon("imageIcon.jpg");
+        ImageIcon imageIcon = FilePath.imageIcon("/ImageIcon.jpg");
         bomb.setTitle("Keep Talking And Nobody Explodes");
         bomb.setIconImage(imageIcon.getImage());
         bomb.setBackground(Color.WHITE);

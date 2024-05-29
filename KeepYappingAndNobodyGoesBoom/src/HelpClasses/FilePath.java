@@ -8,12 +8,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class FilePath{
-    public static ImageIcon imageIconPath(String fileName) throws IOException {
+    public static ImageIcon imageIcon(String fileName) throws IOException {
         InputStream stream = FilePath.class.getResourceAsStream(fileName);
         return new ImageIcon(ImageIO.read(stream));
     }
 
-    public static BufferedReader textFilePath(String fileName){
+    public static BufferedReader textFile(String fileName){
         InputStream stream = FilePath.class.getResourceAsStream(fileName);
         return new BufferedReader(new InputStreamReader(stream));
     }

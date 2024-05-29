@@ -1,18 +1,21 @@
 package Modules.Buttons.PasswordButtons;
 
+import HelpClasses.FilePath;
 import Modules.Buttons.ModuleButton;
 import Modules.Password;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class DownButton extends ModuleButton {
-    static ImageIcon imageIcon = new ImageIcon("up and down buttons/downButton.png");
+    static ImageIcon imageIcon;
     Password password;
     int char_index;
-    public DownButton(Password password, int char_index){
+    public DownButton(Password password, int char_index) throws IOException {
         super();
+        imageIcon = FilePath.imageIcon("/up and down buttons/downButton.png");
         this.password = password;
         this.char_index = char_index;
         setBackground(Color.WHITE);

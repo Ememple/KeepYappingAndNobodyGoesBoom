@@ -1,15 +1,18 @@
 package Modules.PPPic;
 
+import HelpClasses.FilePath;
+import Modules.ParameterPresets;
+
 import javax.swing.*;
-import java.awt.*;
+import java.io.IOException;
 
 public class PPPic extends JLabel {
     private String fileName;
 
-    public PPPic(String fileName){
+    public PPPic(String fileName) throws IOException {
         super();
         this.fileName = fileName;
-        setIcon(new ImageIcon(this.fileName));
+        setIcon(FilePath.imageIcon(this.fileName));
         setVisible(true);
     }
 

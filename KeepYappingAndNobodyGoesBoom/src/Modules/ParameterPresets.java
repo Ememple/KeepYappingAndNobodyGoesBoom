@@ -25,6 +25,7 @@ public class ParameterPresets extends Module{
         setLayout(new GridBagLayout());
         addContainers();
         addCombination();
+        createCombinations();
         setBackground(Color.ORANGE);
         setVisible(true);
         System.out.println(fileNames);
@@ -80,12 +81,17 @@ public class ParameterPresets extends Module{
         add(combination, constraints);
     }
 
-    public void create_combinations(){
-        combinations.put(0, new String[]{"/PPPics/tile009.png", "/PPPics/tile003.png", "PPPics/tile005.png"});
+    public void createCombinations(){
+        combinations.put(0, new String[]{"/PPPics/tile009.png", "/PPPics/tile003.png", "/PPPics/tile005.png"});
         combinations.put(1, new String[]{"/PPPics/tile000.png", "/PPPics/tile006.png", "/PPPics/tile007.png"});
         combinations.put(2, new String[]{"/PPPics/tile001.png", "/PPPics/tile006.png", "/PPPics/tile007.png"});
         combinations.put(3, new String[]{"/PPPics/tile007.png", "/PPPics/tile008.png", "/PPPics/tile001.png"});
         combinations.put(4, new String[]{"/PPPics/tile004.png", "/PPPics/tile000.png", "/PPPics/tile002.png"});
+        combinations.put(5, new String[]{"/PPPics/tile002.png", "/PPPics/tile005.png", "/PPPics/tile001.png"});
+        combinations.put(6, new String[]{"/PPPics/tile004.png", "/PPPics/tile005.png", "/PPPics/tile001.png"});
+        combinations.put(7, new String[]{"/PPPics/tile007.png", "/PPPics/tile009.png", "/PPPics/tile004.png"});
+        combinations.put(8, new String[]{"/PPPics/tile001.png", "/PPPics/tile006.png", "/PPPics/tile003.png"});
+        combinations.put(9, new String[]{"/PPPics/tile001.png", "/PPPics/tile008.png", "/PPPics/tile002.png"});
     }
 
     public ArrayList<String> getFileNames() {

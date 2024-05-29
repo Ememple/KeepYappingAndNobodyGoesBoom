@@ -37,7 +37,7 @@ public class Password extends Module {
     }
 
     public void addIntoPasswords() throws IOException {
-        BufferedReader reader = FilePath.textFilePath("/passwords.txt");
+        BufferedReader reader = FilePath.textFile("/passwords.txt");
         for (int i = 0; i < passwords.length; i++) {
             passwords[i] = reader.readLine();
         }
@@ -49,7 +49,7 @@ public class Password extends Module {
         }
     }
 
-    public void addUpButtons(){
+    public void addUpButtons() throws IOException {
         for (int i = 0; i < 5; i++) {
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridx = i;
@@ -84,7 +84,7 @@ public class Password extends Module {
         }
     }
 
-    public void addDownButtons(){
+    public void addDownButtons() throws IOException {
         for (int i = 0; i < 5; i++) {
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridx = i;

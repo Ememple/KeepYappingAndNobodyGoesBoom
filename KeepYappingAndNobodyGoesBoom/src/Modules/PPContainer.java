@@ -73,12 +73,12 @@ public class PPContainer extends JPanel {
     public void setPreviousPic() throws IOException {
         try{
             String filename = getPresets().getFileNames().get(getPresets().getFileNames().indexOf(getPic().getFileName()) - 1);
-            getPic().setIcon(FilePath.imageIconPath(filename));
+            getPic().setIcon(FilePath.imageIcon(filename));
             getPic().setFileName(filename);
 
         }catch (IndexOutOfBoundsException indexException) {
             String filename = getPresets().getFileNames().getLast();
-            getPic().setIcon(FilePath.imageIconPath(filename));
+            getPic().setIcon(FilePath.imageIcon(filename));
             getPic().setFileName(filename);
         }
     }
@@ -86,11 +86,11 @@ public class PPContainer extends JPanel {
     public void setNextPic() throws IOException {
         try{
             String filename = getPresets().getFileNames().get(getPresets().getFileNames().indexOf(getPic().getFileName()) + 1);
-            getPic().setIcon(FilePath.imageIconPath(filename));
+            getPic().setIcon(FilePath.imageIcon(filename));
             getPic().setFileName(filename);
         }catch (IndexOutOfBoundsException indexException) {
             String filename = getPresets().getFileNames().getFirst();
-            getPic().setIcon(FilePath.imageIconPath(filename));
+            getPic().setIcon(FilePath.imageIcon(filename));
             getPic().setFileName(filename);
         }
     }
