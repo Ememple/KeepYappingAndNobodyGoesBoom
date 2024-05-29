@@ -2,9 +2,11 @@ package Modules;
 
 import Modules.Buttons.ParameterPresetsButtons.*;
 import Modules.PPPic.PPPic;
+import HelpClasses.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class PPContainer extends JPanel {
     private final UpButton upButton;
@@ -12,7 +14,7 @@ public class PPContainer extends JPanel {
     private final PPPic pic;
     private final ParameterPresets presets;
 
-    public PPContainer(ParameterPresets presets){
+    public PPContainer(ParameterPresets presets) throws IOException {
         super();
         this.presets = presets;
         this.upButton = new UpButton(this);
@@ -22,6 +24,7 @@ public class PPContainer extends JPanel {
         addUpButton();
         addPic();
         addDownButton();
+        setBackground(Color.ORANGE);
         setVisible(true);
     }
 
@@ -67,27 +70,27 @@ public class PPContainer extends JPanel {
         return presets;
     }
 
-    public void setPreviousPic(){
+    public void setPreviousPic() throws IOException {
         try{
             String filename = getPresets().getFileNames().get(getPresets().getFileNames().indexOf(getPic().getFileName()) - 1);
-            getPic().setIcon(new ImageIcon(filename));
+            getPic().setIcon(FilePath.imageIconPath(filename));
             getPic().setFileName(filename);
 
         }catch (IndexOutOfBoundsException indexException) {
             String filename = getPresets().getFileNames().getLast();
-            getPic().setIcon(new ImageIcon(filename));
+            getPic().setIcon(FilePath.imageIconPath(filename));
             getPic().setFileName(filename);
         }
     }
 
-    public void setNextPic(){
+    public void setNextPic() throws IOException {
         try{
             String filename = getPresets().getFileNames().get(getPresets().getFileNames().indexOf(getPic().getFileName()) + 1);
-            getPic().setIcon(new ImageIcon(filename));
+            getPic().setIcon(FilePath.imageIconPath(filename));
             getPic().setFileName(filename);
         }catch (IndexOutOfBoundsException indexException) {
             String filename = getPresets().getFileNames().getFirst();
-            getPic().setIcon(new ImageIcon(filename));
+            getPic().setIcon(FilePath.imageIconPath(filename));
             getPic().setFileName(filename);
         }
     }

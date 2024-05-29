@@ -7,7 +7,8 @@ import Modules.Buttons.PasswordButtons.UpButton;
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import HelpClasses.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class Password extends Module {
     }
 
     public void addIntoPasswords() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("passwords.txt"));
+        BufferedReader reader = FilePath.textFilePath("/passwords.txt");
         for (int i = 0; i < passwords.length; i++) {
             passwords[i] = reader.readLine();
         }
@@ -76,7 +77,7 @@ public class Password extends Module {
 
             constraints.weightx = 1;
             constraints.weighty = 1;
-            JLabel character = new JLabel("" + password.charAt(chars[i]));
+            JLabel character = new JLabel(STR."\{password.charAt(chars[i])}");
             character.setFont(new Font("monospaced", Font.PLAIN, 30));
             characters.add(character);
             add(characters.get(i), constraints);
