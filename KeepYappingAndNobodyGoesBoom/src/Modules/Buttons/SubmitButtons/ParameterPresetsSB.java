@@ -1,14 +1,13 @@
 package Modules.Buttons.SubmitButtons;
 
 import Frames.Bomb;
-import Modules.Buttons.ModuleButton;
 import Modules.PPContainer;
 import Modules.ParameterPresets;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class ParameterPresetsSB extends ModuleButton {
+public class ParameterPresetsSB extends SubmitButton {
     ParameterPresets presets;
     public ParameterPresetsSB(ParameterPresets presets){
         super();

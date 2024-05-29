@@ -9,7 +9,7 @@ public abstract class SubmitButton extends ModuleButton {
     public SubmitButton(){
         super();
         //this.password = password;
-        this.addActionListener(this);
+        //this.addActionListener(this);
         setText("Submit");
     }
 
