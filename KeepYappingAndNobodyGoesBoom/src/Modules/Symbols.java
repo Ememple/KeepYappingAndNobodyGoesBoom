@@ -13,8 +13,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Symbols extends JPanel {
-    private ArrayList<Integer> usedNumbers = new ArrayList<>();
-    private ArrayList<SymbolButton> symbolButtonArrayList = new ArrayList<>();
+    private final ArrayList<Integer> usedNumbers = new ArrayList<>();
+    private final ArrayList<SymbolButton> symbolButtonArrayList = new ArrayList<>();
     private int onButtonNumber =0;
     public Symbols() {
         try {

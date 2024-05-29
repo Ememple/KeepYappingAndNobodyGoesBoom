@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class HorizontalWires extends JPanel implements Runnable{
-    private ArrayList<HorizontalWireButton> wires = new ArrayList<>();
+    private final ArrayList<HorizontalWireButton> wires = new ArrayList<>();
     private int[] correctOrder;
     public HorizontalWires() {
         this.setLayout(new GridLayout(6,1));
