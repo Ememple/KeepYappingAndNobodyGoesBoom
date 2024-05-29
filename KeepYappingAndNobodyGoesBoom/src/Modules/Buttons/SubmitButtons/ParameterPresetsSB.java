@@ -13,6 +13,7 @@ public class ParameterPresetsSB extends ModuleButton {
     public ParameterPresetsSB(ParameterPresets presets){
         super();
         this.presets = presets;
+        setText("Submit");
     }
 
     @Override
@@ -27,7 +28,7 @@ public class ParameterPresetsSB extends ModuleButton {
                 }
             }
         }
-        if (correct){
+        if (!correct){
             presets.disable();
         }
     }
