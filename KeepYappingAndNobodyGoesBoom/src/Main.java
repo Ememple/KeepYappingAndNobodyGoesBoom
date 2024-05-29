@@ -1,6 +1,8 @@
 import Frames.Menu;
 
-public static void main() {
+public class Main {
+    public static void main(String[] args) {
     Menu menu = new Menu();
     menu.createMenu();
+    }
 }

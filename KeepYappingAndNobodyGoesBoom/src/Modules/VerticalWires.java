@@ -1,9 +1,11 @@
 package Modules;
 
+import HelpClasses.FilePath;
 import Modules.Buttons.VerticalWiresButton.VerticalWireButton;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,7 +13,7 @@ public class VerticalWires extends JPanel {
     private final ArrayList<VerticalWireButton> verticalWireButtons = new ArrayList<>();
     private final ArrayList<Integer> correctOrder = new ArrayList<>();
 
-    public VerticalWires() {
+    public VerticalWires() throws IOException {
         this.setLayout(new GridBagLayout());
         Random random = new Random();
         int numberOfWires =random.nextInt(3,6);
@@ -21,18 +23,18 @@ public class VerticalWires extends JPanel {
         this.setBackground(Color.WHITE);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
-    public void createLED(Random random, int numberOfWires){
+    public void createLED(Random random, int numberOfWires) throws IOException {
         for (int i=0; i<numberOfWires; i++){
             VerticalWireButton verticalWireButton= new VerticalWireButton();
             JLabel image = new JLabel();
             switch (random.nextInt(2)){
                 case 0:
                     verticalWireButton.setLed(true);
-                    image = new JLabel(new ImageIcon("LEDon.png"));
+                    image = new JLabel(FilePath.imageIcon("/LEDon.png"));
                     break;
                 case 1:
                     verticalWireButton.setLed(false);
-                    image = new JLabel(new ImageIcon("LEDoff.png"));
+                    image = new JLabel(new ImageIcon("/LEDoff.png"));
                     break;
 
             }
@@ -80,7 +82,7 @@ public class VerticalWires extends JPanel {
             this.add(verticalWireButtons.get(i), gridBagConstraints);
             }
         }
-    public void createStar(Random random, int numberOfWires){
+    public void createStar(Random random, int numberOfWires) throws IOException {
         for (int i=0; i<numberOfWires; i++){
             boolean star = true;
             switch (random.nextInt(2)){
@@ -104,7 +106,7 @@ public class VerticalWires extends JPanel {
             gridBagConstraints.weighty=0.5;
             JLabel image;
             if (star){
-                image = new JLabel(new ImageIcon("Star.png"));
+                image = new JLabel(FilePath.imageIcon("/Star.png"));
             }
             else {
                 image = new JLabel();
