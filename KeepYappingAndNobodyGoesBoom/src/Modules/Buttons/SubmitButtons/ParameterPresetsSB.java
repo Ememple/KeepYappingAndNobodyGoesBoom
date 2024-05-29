@@ -8,7 +8,7 @@ import Modules.ParameterPresets;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class ParameterPresetsSB extends ModuleButton {
+public class ParameterPresetsSB extends SubmitButton {
     ParameterPresets presets;
     public ParameterPresetsSB(ParameterPresets presets){
         super();
