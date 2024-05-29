@@ -1,7 +1,6 @@
 package Modules.PPPic;
 
 import HelpClasses.FilePath;
-import Modules.ParameterPresets;
 
 import javax.swing.*;
 import java.io.IOException;

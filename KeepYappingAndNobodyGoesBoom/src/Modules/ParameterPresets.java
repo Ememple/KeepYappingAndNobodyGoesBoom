@@ -97,4 +97,12 @@ public class ParameterPresets extends Module{
     public ArrayList<String> getFileNames() {
         return fileNames;
     }
+
+    public HashMap<Integer, String[]> getCombinations() {
+        return combinations;
+    }
+
+    public JLabel getCombination(){
+        return combination;
+    }
 }
