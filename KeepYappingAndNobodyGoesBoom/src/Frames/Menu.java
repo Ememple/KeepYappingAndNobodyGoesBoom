@@ -1,14 +1,22 @@
 package Frames;
 
 import Frames.MenuButtons.*;
+import HelpClasses.FilePath;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+
 public class Menu{
     public void createMenu(){
         JFrame mainFrame = new JFrame();
-        JLabel label = new JLabel("Keep Talking And Nobody Explodes");
-        ImageIcon imageIcon = new ImageIcon("imageIcon.jpg" );
+        JLabel label = new JLabel("KeepYappingAndNobodyGoesBOOM");
+        ImageIcon imageIcon;
+        try {
+            imageIcon = FilePath.imageIcon("/ImageIcon.jpg");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         JPanel mainPanel = new JPanel();
         JLabel gameName = new JLabel();
         ButtonPlay buttonPlay = new ButtonPlay("Defuse bomb");
