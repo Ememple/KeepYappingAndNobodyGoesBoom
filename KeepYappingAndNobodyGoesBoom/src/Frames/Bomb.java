@@ -8,7 +8,7 @@ import java.util.Random;
 import javax.swing.*;
 
 public class Bomb {
-    private static int strikes=0;
+    public static int strikes=0;
     public Bomb(){
     }
     public static void strikePlus(){

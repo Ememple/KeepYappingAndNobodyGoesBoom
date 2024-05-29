@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class VerticalWires extends JPanel {
-    private ArrayList<VerticalWireButton> verticalWireButtons = new ArrayList<>();
-    private ArrayList<Integer> correctOrder = new ArrayList<>();
+    private final ArrayList<VerticalWireButton> verticalWireButtons = new ArrayList<>();
+    private final ArrayList<Integer> correctOrder = new ArrayList<>();
 
     public VerticalWires() {
         this.setLayout(new GridBagLayout());
