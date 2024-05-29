@@ -1,7 +1,6 @@
 package Modules.Buttons.SubmitButtons;
 
 import Frames.Bomb;
-import Modules.Buttons.ModuleButton;
 import Modules.PPContainer;
 import Modules.ParameterPresets;
 
