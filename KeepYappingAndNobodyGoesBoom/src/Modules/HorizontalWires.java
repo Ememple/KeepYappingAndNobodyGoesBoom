@@ -147,16 +147,13 @@ public class HorizontalWires extends JPanel implements Runnable{
         return correctOrder;
     }
     public void control(ArrayList<HorizontalWireButton> wires, int[] correctOrder){
-        boolean chill= true;
+        int helpInt=0;
         for (int i =0; i<wires.size();i++){
             if (wires.get(i).getValue()==correctOrder[i]){
-               chill=true;
-            }
-            else {
-                chill=false;
+                helpInt++;
             }
         }
-        if (chill){
+        if (helpInt==wires.size()){
             for (int j=0; j<this.getComponents().length; j++){
                 this.getComponent(j).setBackground(Color.GRAY);
                 this.getComponent(j).setEnabled(false);
@@ -164,6 +161,10 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         else {
             Bomb.strikePlus();
+            for (int j=0; j<this.getComponents().length; j++){
+                this.getComponent(j).setBackground(Color.GRAY);
+                this.getComponent(j).setEnabled(false);
+            }
         }
     }
     @Override
@@ -188,6 +189,8 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         for (int i =0; i<wires.size(); i++){
             this.add(wires.get(i));
+            System.out.println(correctOrder[i]);
         }
+
     }
 }
