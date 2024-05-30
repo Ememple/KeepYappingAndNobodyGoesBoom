@@ -1,0 +1,50 @@
+stage 1
+    pokud display je 1
+        zmáčkni číslo 2
+        jinak strike, stage = 1
+    pokud disply je 2
+        zmáčkni pozici 2
+    pokud display je 3
+        zmáčkni pozici 1
+    pokud display je 4
+        zmáčkni číslo 4
+
+stage 2
+    pokud display je 1
+        zmáčkni tlačítko se stejným číslem jako při fázi 1
+    pokud display je 2
+        zmáčkni číslo 3
+    pokud display je 3
+        zmáčkni pozici 1
+    pokud display je 4
+        zmáčkni tlačítko na stejné pozici, jako při fázi 1
+
+stage 3
+    pokud display je 1
+        zmáčkni tlačítko na stejné pozici, jako při fázi 2
+    pokud display je 2
+        zmáčkni tlačítko na stejné pozici, jako při fázi 1
+    pokud display je 3
+        zmáčkni tlačítko se stejným číslem, jako mělo tlačítko ve fázi 1
+    pokud display je 4
+        zmáčkni číslo 1
+
+stage 4
+    pokud display je 1
+        zmáčkni tlačítko se stejným číslem, jako mělo tlačítko ve fázi 1
+    pokud display je 2
+        zmáčkni tlačítko se stejným číslem, jako mělo tlačítko ve fázi 2
+    pokud display je 3
+        zmáčkni pozici 2
+    pokud display je 4
+        zmáčkni tlačítko na stejné pozici, jako při fázi 1
+
+stage 5
+    pokud display je 1
+        zmáčkni tlačítko se stejným číslem, jako mělo tlačítko ve fázi 1
+    pokud display je 2
+        zmáčkni tlačítko se stejným číslem, jako mělo tlačítko ve fázi 3
+    pokud display je 3
+        zmáčkni tlačítko na stejné pozici, jako mělo tlačítko ve fázi 1
+    pokud display je 4
+        zmáčkni tlačítko se stejným číslem, jako mělo tlačítko ve fázi 2
