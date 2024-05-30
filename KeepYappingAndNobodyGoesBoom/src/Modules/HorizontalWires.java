@@ -70,7 +70,7 @@ public class HorizontalWires extends JPanel implements Runnable{
         int count=0;
         for(int i =0; i<wires.size();i++){
             for(int j =0; j<wires.size();j++){
-                if (wires.get(i).getValue()==i){
+                if (wires.get(i).getValue()==j){
                     count++;
                 }
                 numberOfColors.add(count);

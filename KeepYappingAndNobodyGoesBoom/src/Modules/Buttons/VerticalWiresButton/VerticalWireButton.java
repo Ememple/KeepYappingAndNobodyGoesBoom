@@ -1,11 +1,25 @@
 package Modules.Buttons.VerticalWiresButton;
 
-import javax.swing.*;
+import Modules.VerticalWires;
 
-public class VerticalWireButton extends JButton {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+public class VerticalWireButton extends JButton{
+    private int position;
     private int value;
     private boolean led;
     private boolean star;
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     public int getValue() {
         return value;
