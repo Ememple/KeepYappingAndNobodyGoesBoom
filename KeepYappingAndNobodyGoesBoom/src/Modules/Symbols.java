@@ -1,8 +1,10 @@
 package Modules;
 
 import Frames.Bomb;
+import HelpClasses.FilePath;
 import Modules.Buttons.SymbolsButton.SymbolButton;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,13 +34,13 @@ public class Symbols extends JPanel {
         String columnString ="";
         switch (column){
             case 1:
-                columnString="Symbol/Column1";
+                columnString="/Symbol/Column1";
                 break;
             case 2:
-                columnString="Symbol/Column2";
+                columnString="/Symbol/Column2";
                 break;
             case 3:
-                columnString="Symbol/Column3";
+                columnString="/Symbol/Column3";
                 break;
         }
         for (int i = 0; i<4; i++){
@@ -84,7 +86,7 @@ public class Symbols extends JPanel {
             }
             String pngPath=columnString+symbol;
             symbolButton.setBackground(Color.WHITE);
-            symbolButton.setIcon(new ImageIcon(pngPath));
+            symbolButton.setIcon(FilePath.imageIcon(pngPath));
             symbolButton.setBorder(BorderFactory.createLineBorder(new Color(0xA9A9A9), 2, false));
             symbolButtonArrayList.add(symbolButton);
             this.add(symbolButton);
