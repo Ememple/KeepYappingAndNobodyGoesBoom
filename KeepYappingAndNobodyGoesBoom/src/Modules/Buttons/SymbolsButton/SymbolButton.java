@@ -2,6 +2,9 @@ package Modules.Buttons.SymbolsButton;
 
 import javax.swing.*;
 
+/**
+ * button for Symbols.
+ */
 public class SymbolButton extends JButton {
     private int value;
 

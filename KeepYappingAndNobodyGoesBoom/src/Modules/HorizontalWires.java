@@ -10,14 +10,27 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The type Horizontal wires.
+ */
 public class HorizontalWires extends JPanel implements Runnable{
     private final ArrayList<HorizontalWireButton> wires = new ArrayList<>();
     private int[] correctOrder;
+
+    /**
+     * creates Horizontal wires.
+     */
     public HorizontalWires() {
         this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
+
+    /**
+     * Create wires buttons.
+     *
+     * @param wires the wires
+     */
     public void createWires(ArrayList<HorizontalWireButton> wires){
         Random random = new Random();
         int numberOfWires=random.nextInt(3,7);
@@ -61,6 +74,13 @@ public class HorizontalWires extends JPanel implements Runnable{
             wires.add(button);
         }
     }
+
+    /**
+     * Count colors array list.
+     *
+     * @param wires the wires
+     * @return the array list
+     */
     public ArrayList<Integer> countColors(ArrayList<HorizontalWireButton> wires){
         ArrayList<Integer> numberOfColors = new ArrayList<>();
         correctOrder=new int[wires.size()];
@@ -78,6 +98,13 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         return numberOfColors;
     }
+
+    /**
+     * Checks the correct order.
+     *
+     * @param wires the wires
+     * @return the int [ ]
+     */
     public int[] check(ArrayList<HorizontalWireButton> wires){
         ArrayList<Integer> countOfColors = countColors(wires);
         switch (wires.size()){
@@ -146,6 +173,13 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         return correctOrder;
     }
+
+    /**
+     * controls the order.
+     *
+     * @param wires        the wires
+     * @param correctOrder the correct order
+     */
     public void control(ArrayList<HorizontalWireButton> wires, int[] correctOrder){
         int helpInt=0;
         for (int i =0; i<wires.size();i++){

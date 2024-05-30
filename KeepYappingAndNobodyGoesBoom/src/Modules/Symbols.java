@@ -14,10 +14,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * The type Symbols.
+ */
 public class Symbols extends JPanel {
     private final ArrayList<Integer> usedNumbers = new ArrayList<>();
     private final ArrayList<SymbolButton> symbolButtonArrayList = new ArrayList<>();
     private int onButtonNumber =0;
+
+    /**
+     * Instantiates a new Symbols.
+     */
     public Symbols() {
         try {
             createButtons();
@@ -28,6 +35,12 @@ public class Symbols extends JPanel {
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
+
+    /**
+     * Create symbol buttons.
+     *
+     * @throws IOException the io exception
+     */
     public void createButtons() throws IOException {
         Random random = new Random();
         int column = random.nextInt(3)+1;
@@ -92,6 +105,14 @@ public class Symbols extends JPanel {
             this.add(symbolButton);
         }
     }
+
+    /**
+     * Checks for duplicate symbol.
+     *
+     * @param symbolNumber the symbol number
+     * @param random       the random
+     * @return the int
+     */
     public int checkSymbol(int symbolNumber, Random random){
         if (usedNumbers.contains(symbolNumber)){
             while (usedNumbers.contains(symbolNumber)){
@@ -101,6 +122,12 @@ public class Symbols extends JPanel {
         usedNumbers.add(symbolNumber);
         return symbolNumber;
     }
+
+    /**
+     * Correct order.
+     *
+     * @param symbolButton the symbol button
+     */
     public void correctOrder(SymbolButton symbolButton){
         int[] correctOrderArray = new int[4];
         for (int i=0 ; i < symbolButtonArrayList.size(); i++){
