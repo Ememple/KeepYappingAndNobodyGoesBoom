@@ -18,17 +18,29 @@ public class ParameterPresetsSB extends SubmitButton {
     @Override
     public void actionPerformed(ActionEvent e){
         boolean correct = true;
+        int counter = 0;
         for(Component tile : presets.getComponents()){
             if (tile instanceof PPContainer){
-                if (!(((PPContainer) tile).getPic().getFileName().equals(presets.getCombinations().get(Integer.parseInt(presets.getCombination().getText()))))){
+                if (((PPContainer) tile).getPic().getFileName().equals(presets.getCombinations().get(Integer.parseInt(presets.getCombination().getText()))[counter])){
+                    counter++;
+                } else{
                     correct = false;
                     Bomb.strikePlus();
                     break;
                 }
             }
         }
-        if (!correct){
-            presets.disable();
+        if (correct){
+            for (Component label : presets.getComponents()){
+                if (label instanceof PPContainer){
+                    for (Component component : ((PPContainer) label).getComponents()){
+                        component.setEnabled(false);
+                    }
+                }
+            }
+            //presets;
         }
     }
+
+
 }
