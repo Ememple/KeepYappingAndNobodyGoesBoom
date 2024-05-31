@@ -154,6 +154,8 @@ public class Symbols extends JPanel {
                 this.getComponent(j).setBackground(Color.GREEN);
                 this.getComponent(j).setEnabled(false);
             }
+            Bomb.cleared.add(true);
+            System.out.println("Cleared Symbols");
         }
     }
 

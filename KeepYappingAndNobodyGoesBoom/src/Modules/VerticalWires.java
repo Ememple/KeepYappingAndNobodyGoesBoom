@@ -16,6 +16,7 @@ public class VerticalWires extends JPanel {
     private final ArrayList<VerticalWireButton> verticalWireButtons = new ArrayList<>();
     private final ArrayList<Integer> correctOrder = new ArrayList<>();
     private int onWire=0;
+    private int neededCutWires =0;
 
     public VerticalWires() throws IOException {
         this.setLayout(new GridBagLayout());
@@ -25,6 +26,8 @@ public class VerticalWires extends JPanel {
         createWires(random,numberOfWires);
         createStar(random,numberOfWires);
         createCorrectOrder();
+        checkIfCleared();
+        System.out.println(correctOrder);
         this.setBackground(Color.WHITE);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
@@ -131,26 +134,32 @@ public class VerticalWires extends JPanel {
                         correctOrder.add(0);
                     }
                     else if (!verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()) {
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     else if (verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()){
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     else if (!verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     break;
                 case 1:
                     if (verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     else if (!verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()) {
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     else if (verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()){
                         correctOrder.add(0);
                     }
                     else if (!verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     break;
@@ -162,6 +171,7 @@ public class VerticalWires extends JPanel {
                         correctOrder.add(0);
                     }
                     else if (verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()){
+                        neededCutWires++;
                         correctOrder.add(5);
                     }
                     else if (!verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
@@ -184,12 +194,27 @@ public class VerticalWires extends JPanel {
         verticalWireButtons.get(i).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VerticalWires.this.checkCorrectOrder(position);
+                checkCorrectOrder(position);
+                checkIfCleared();
             }
         });
     }
     public ArrayList<VerticalWireButton> getVerticalWireButtons() {
         return verticalWireButtons;
     }
-
+    public void checkIfCleared(){
+        int cutWires=0;
+        for (int i=0; i<verticalWireButtons.size(); i++){
+            if (!verticalWireButtons.get(i).isEnabled()){
+                cutWires++;
+            }
+        }
+        if (cutWires== neededCutWires){
+            Bomb.cleared.add(true);
+            System.out.println("Cleared Vertical wires");
+            for (int i=0; i<verticalWireButtons.size(); i++){
+                verticalWireButtons.get(i).setEnabled(false);
+            }
+        }
+    }
 }
