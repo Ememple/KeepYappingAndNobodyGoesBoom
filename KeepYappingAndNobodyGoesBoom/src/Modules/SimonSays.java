@@ -30,8 +30,8 @@ public class SimonSays extends Module{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
 
-        constraints.weightx = 1;
-        constraints.weighty = 1;
+        constraints.weightx = 2;
+        constraints.weighty = 2;
 
         blue = new ColoredButton(this, Color.LIGHT_GRAY, "blue");
         add(blue, constraints);
@@ -73,10 +73,10 @@ public class SimonSays extends Module{
 
     public ColoredButton randomButton(){
         return switch (getRandom().nextInt(0,4)){
-            case 0 -> new ColoredButton(this, blue.getBackground(), blue.getColor());
-            case 1 -> new ColoredButton(this, red.getBackground(), red.getColor());
-            case 2 -> new ColoredButton(this, green.getBackground(), green.getColor());
-            case 3 -> new ColoredButton(this, yellow.getBackground(), yellow.getColor());
+            case 0 -> blue;
+            case 1 -> red;
+            case 2 -> green;
+            case 3 -> yellow;
             default -> null;
         };
     }

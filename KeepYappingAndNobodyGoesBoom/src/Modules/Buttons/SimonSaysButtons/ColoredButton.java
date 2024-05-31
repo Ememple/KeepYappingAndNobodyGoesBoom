@@ -14,7 +14,10 @@ public class ColoredButton extends ModuleButton {
         super();
         this.simon = simon;
         this.color = color;
+        setText(" ");
+        setFont(new Font("monospaced", Font.PLAIN, 100));
         setBackground(background);
+        setSize(250, 250);
         setVisible(true);
     }
 
@@ -32,7 +35,7 @@ public class ColoredButton extends ModuleButton {
 
             switch(Bomb.strikes){
                 case 0 -> {
-                    switch (matchColor){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){
                         case "red" -> {
                             if (color.equals("blue")){
                                 nextStage();
@@ -245,9 +248,16 @@ public class ColoredButton extends ModuleButton {
         setBackground(background);
         repaint();
         setVisible(true);
-        Thread.sleep(1000);
-        setBackground(Color.LIGHT_GRAY);
-        repaint();
+        new Thread(()->{
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            ColoredButton.this.setBackground(Color.LIGHT_GRAY);
+        }).start();
+        //setBackground(Color.BLACK);
+        //repaint();
         setVisible(true);
     }
 
