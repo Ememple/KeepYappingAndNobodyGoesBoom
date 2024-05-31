@@ -35,6 +35,10 @@ public class Bomb {
             System.out.println("Počet chyb "+strikes);
         }
     }
+
+    /**
+     * Check if all modules are cleared.
+     */
     public static void checkAllCleared(){
         int winCondition=0;
         for (int i=0; i<5; i++){
