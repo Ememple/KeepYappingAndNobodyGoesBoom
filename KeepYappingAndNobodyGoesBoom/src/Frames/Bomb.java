@@ -60,6 +60,7 @@ public class Bomb {
         bomb.add(symbols);
         bomb.add(verticalWires);
         bomb.add(new ParameterPresets());
+        bomb.add(new SimonSays());
         bomb.setVisible(true);
     }
 
