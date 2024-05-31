@@ -7,7 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * The type Menu.
+ */
 public class Menu{
+    /**
+     * Creates menu.
+     */
     public void createMenu(){
         JFrame mainFrame = new JFrame();
         JLabel label = new JLabel("KeepYappingAndNobodyGoesBOOM");

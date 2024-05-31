@@ -8,13 +8,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * The type Bomb timer.
+ */
 public class BombTimer extends JPanel{
+    /**
+     * The Strikes.
+     */
     public ArrayList<JLabel> strikes = new ArrayList<>();
+    /**
+     * The Seconds.
+     */
     int seconds;
+    /**
+     * The Minutes.
+     */
     int minutes;
+    /**
+     * The Elapsed time.
+     */
     int elapsedTime=301000;
+    /**
+     * The Seconds string.
+     */
     String secondsString = String.format("%02d", seconds);
+    /**
+     * The Minutes string.
+     */
     String minutesString = String.format("%02d", minutes);
+
+    /**
+     * starts a new bomb timer and shows strikes.
+     */
     public BombTimer() {
         JLabel timeLabel = new JLabel();
 
@@ -90,6 +115,12 @@ public class BombTimer extends JPanel{
             timer.start();
         }
     }
+
+    /**
+     * adds Strike.
+     *
+     * @param strike the strike
+     */
     public void strikeAdd(int strike){
         if (strike>0){
             strikes.get(strike-1).setForeground(Color.RED);

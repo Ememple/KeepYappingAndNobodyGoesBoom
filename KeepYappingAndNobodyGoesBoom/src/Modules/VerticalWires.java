@@ -1,10 +1,13 @@
 package Modules;
 
+import Frames.Bomb;
 import HelpClasses.FilePath;
 import Modules.Buttons.VerticalWiresButton.VerticalWireButton;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,6 +15,7 @@ import java.util.Random;
 public class VerticalWires extends JPanel {
     private final ArrayList<VerticalWireButton> verticalWireButtons = new ArrayList<>();
     private final ArrayList<Integer> correctOrder = new ArrayList<>();
+    private int onWire=0;
 
     public VerticalWires() throws IOException {
         this.setLayout(new GridBagLayout());
@@ -20,9 +24,11 @@ public class VerticalWires extends JPanel {
         createLED(random,numberOfWires);
         createWires(random,numberOfWires);
         createStar(random,numberOfWires);
+        createCorrectOrder();
         this.setBackground(Color.WHITE);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
+
     public void createLED(Random random, int numberOfWires) throws IOException {
         for (int i=0; i<numberOfWires; i++){
             VerticalWireButton verticalWireButton= new VerticalWireButton();
@@ -69,7 +75,9 @@ public class VerticalWires extends JPanel {
                     verticalWireButtons.get(i).setBackground(Color.WHITE);
                     break;
             }
-
+            verticalWireButtons.get(i).setPosition(onWire);
+            addAction(onWire, i);
+            onWire++;
 
             GridBagConstraints gridBagConstraints = new GridBagConstraints();
             gridBagConstraints.gridx=i;
@@ -114,5 +122,70 @@ public class VerticalWires extends JPanel {
             image.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
             this.add(image, gridBagConstraints);
         }
+    }
+    public void createCorrectOrder(){
+        for (int i =0; i<verticalWireButtons.size();i++ ){
+            switch (verticalWireButtons.get(i).getValue()) {
+                case 0:
+                    if (verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(0);
+                    }
+                    else if (!verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()) {
+                        correctOrder.add(5);
+                    }
+                    else if (verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(5);
+                    }
+                    else if (!verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(5);
+                    }
+                    break;
+                case 1:
+                    if (verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(5);
+                    }
+                    else if (!verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()) {
+                        correctOrder.add(5);
+                    }
+                    else if (verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(0);
+                    }
+                    else if (!verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(5);
+                    }
+                    break;
+                case 2:
+                    if (verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(0);
+                    }
+                    else if (!verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()) {
+                        correctOrder.add(0);
+                    }
+                    else if (verticalWireButtons.get(i).isLed() && verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(5);
+                    }
+                    else if (!verticalWireButtons.get(i).isLed() && !verticalWireButtons.get(i).isStar()){
+                        correctOrder.add(0);
+                    }
+                    break;
+            }
+        }
+    }
+    public void checkCorrectOrder(int position){
+        if (correctOrder.get(position)==5){
+
+        }else {
+            Bomb.strikePlus();
+        }
+        verticalWireButtons.get(position).setBackground(Color.GRAY);
+        verticalWireButtons.get(position).setEnabled(false);
+    }
+    public void addAction(int position, int i){
+        verticalWireButtons.get(i).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VerticalWires.this.checkCorrectOrder(position);
+            }
+        });
     }
 }

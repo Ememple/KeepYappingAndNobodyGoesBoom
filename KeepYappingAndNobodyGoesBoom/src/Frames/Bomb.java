@@ -7,10 +7,21 @@ import java.io.IOException;
 import java.util.Random;
 import javax.swing.*;
 
+/**
+ * The type Bomb.
+ */
 public class Bomb {
     public static int strikes=0;
+
+    /**
+     * creates new Bomb.
+     */
     public Bomb(){
     }
+
+    /**
+     * adds Strike.
+     */
     public static void strikePlus(){
         if (strikes>=3){
             System.exit(0);
@@ -21,6 +32,11 @@ public class Bomb {
         }
     }
 
+    /**
+     * Starts bomb.
+     *
+     * @throws IOException the io exception
+     */
     public void start() throws IOException {
         JFrame bomb = new JFrame();
         ImageIcon imageIcon = FilePath.imageIcon("/ImageIcon.jpg");
@@ -49,6 +65,12 @@ public class Bomb {
     }
 
 
+    /**
+     * Random module component.
+     *
+     * @return the component
+     * @throws IOException the io exception
+     */
     public Component randomModule() throws IOException{
         Random random = new Random();
         switch (random.nextInt(0,5)+1){
