@@ -243,9 +243,11 @@ public class ColoredButton extends ModuleButton {
         }
         System.out.println("Flash color " + color);
         setBackground(background);
+        repaint();
         setVisible(true);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         setBackground(Color.LIGHT_GRAY);
+        repaint();
         setVisible(true);
     }
 
