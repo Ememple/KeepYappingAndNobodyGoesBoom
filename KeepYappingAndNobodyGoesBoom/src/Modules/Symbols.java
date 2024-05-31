@@ -25,7 +25,7 @@ public class Symbols extends JPanel {
     /**
      * Instantiates a new Symbols.
      */
-    public Symbols() {
+    public Symbols(){
         try {
             createButtons();
         } catch (IOException e) {
@@ -155,5 +155,9 @@ public class Symbols extends JPanel {
                 this.getComponent(j).setEnabled(false);
             }
         }
+    }
+
+    public ArrayList<SymbolButton> getSymbolButtonArrayList() {
+        return symbolButtonArrayList;
     }
 }

@@ -40,7 +40,7 @@ public class VerticalWires extends JPanel {
                     break;
                 case 1:
                     verticalWireButton.setLed(false);
-                    image = new JLabel(new ImageIcon("/LEDoff.png"));
+                    image = new JLabel(FilePath.imageIcon("/LEDoff.png"));
                     break;
 
             }
@@ -188,4 +188,8 @@ public class VerticalWires extends JPanel {
             }
         });
     }
+    public ArrayList<VerticalWireButton> getVerticalWireButtons() {
+        return verticalWireButtons;
+    }
+
 }
