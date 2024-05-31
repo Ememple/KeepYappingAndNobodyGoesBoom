@@ -223,7 +223,6 @@ public class HorizontalWires extends JPanel implements Runnable{
         }
         for (int i =0; i<wires.size(); i++){
             this.add(wires.get(i));
-            System.out.println(correctOrder[i]);
         }
 
     }

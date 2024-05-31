@@ -170,10 +170,9 @@ public class VerticalWires extends JPanel {
                     break;
             }
         }
-        System.out.println(correctOrder);
     }
     public void checkCorrectOrder(int position){
-        if (correctOrder.get(position)==verticalWireButtons.get(position).getValue()){
+        if (correctOrder.get(position)==5){
 
         }else {
             Bomb.strikePlus();
@@ -182,11 +181,11 @@ public class VerticalWires extends JPanel {
         verticalWireButtons.get(position).setEnabled(false);
     }
     public void addAction(int position, int i){
-            verticalWireButtons.get(i).addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    checkCorrectOrder(verticalWireButtons.get(position).getPosition());
-                }
-            });
+        verticalWireButtons.get(i).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VerticalWires.this.checkCorrectOrder(position);
+            }
+        });
     }
 }
