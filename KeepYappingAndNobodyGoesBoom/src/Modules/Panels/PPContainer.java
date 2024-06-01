@@ -9,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * Holds two buttons and a image.
+ */
 public class PPContainer extends JPanel {
     private final UpButton upButton;
     private final DownButton downButton;
@@ -29,6 +32,9 @@ public class PPContainer extends JPanel {
         setVisible(true);
     }
 
+    /**
+     * Adds a button for selecting another image.
+     */
     public void addUpButton(){
         GridBagConstraints constraints = new GridBagConstraints();
 
@@ -41,6 +47,9 @@ public class PPContainer extends JPanel {
         add(upButton, constraints);
     }
 
+    /**
+     * Adds and image.
+     */
     public void addPic() {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
@@ -52,6 +61,9 @@ public class PPContainer extends JPanel {
         add(pic, constraints);
     }
 
+    /**
+     * Same as addUpButton.
+     */
     public void addDownButton(){
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
@@ -71,6 +83,10 @@ public class PPContainer extends JPanel {
         return presets;
     }
 
+    /**
+     * Selects previous picture.
+     * @throws IOException
+     */
     public void setPreviousPic() throws IOException {
         try{
             String filename = getPresets().getFileNames().get(getPresets().getFileNames().indexOf(getPic().getFileName()) - 1);
@@ -84,6 +100,10 @@ public class PPContainer extends JPanel {
         }
     }
 
+    /**
+     * Selects next picture.
+     * @throws IOException
+     */
     public void setNextPic() throws IOException {
         try{
             String filename = getPresets().getFileNames().get(getPresets().getFileNames().indexOf(getPic().getFileName()) + 1);

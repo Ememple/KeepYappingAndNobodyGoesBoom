@@ -6,6 +6,9 @@ import Modules.SimonSays;
 import javax.swing.*;
 import java.io.IOException;
 
+/**
+ * Holds an image.
+ */
 public class Led extends JLabel {
     private SimonSays simon;
     private ImageIcon icon;

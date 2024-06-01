@@ -5,6 +5,9 @@ import HelpClasses.FilePath;
 import javax.swing.*;
 import java.io.IOException;
 
+/**
+ * Holds an image.
+ */
 public class PPPic extends JLabel {
     private String fileName;
 

@@ -32,6 +32,9 @@ public class Memory extends Module{
         setVisible(true);
     }
 
+    /**
+     * Adds a Progress bar into Memory module.
+     */
     public void addProgressBar(){
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 5;
@@ -47,6 +50,9 @@ public class Memory extends Module{
         add(mSB, constraints);
     }
 
+    /**
+     * Adds Buttons for changing numbers into the Module
+     */
     public void addChangeNumberButtons(){
         GridBagConstraints constraints = new GridBagConstraints();
         for (int i = 0; i < 4; i++) {
@@ -74,6 +80,9 @@ public class Memory extends Module{
         }
     }
 
+    /**
+     * Creates a number display.
+     */
     public void addNumberDisplay(){
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
@@ -91,6 +100,9 @@ public class Memory extends Module{
         add(numberDisplay, constraints);
     }
 
+    /**
+     * Removes all Buttons from collection when stage is failed.
+     */
     public void removeChangeNumberButtons(){
         for (Component chNB : this.getComponents()) {
             if (chNB instanceof ChangeNumberButton){
@@ -99,10 +111,16 @@ public class Memory extends Module{
         }
     }
 
+    /**
+     * Creates number for display.
+     */
     public void initialize_displayed_number() {
         numberDisplay = new JLabel(STR."\{numbers.get(getRandom().nextInt(0, 4))}");
     }
 
+    /**
+     * Creates new number for display.
+     */
     public void newDisplay(){
         numberDisplay.setText(STR."\{numbers.get(getRandom().nextInt(0, 4))}");
     }

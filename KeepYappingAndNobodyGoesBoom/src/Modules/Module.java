@@ -21,6 +21,9 @@ public abstract class Module extends JPanel {
         return random;
     }
 
+    /**
+     * Disables every component in Module
+     */
     public void disableModule(){
         for (int i = 0; i < getComponents().length; i++) {
             getComponent(i).setEnabled(false);

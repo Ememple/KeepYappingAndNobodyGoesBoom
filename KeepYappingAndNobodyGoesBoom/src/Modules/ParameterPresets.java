@@ -35,7 +35,11 @@ public class ParameterPresets extends Module{
         setVisible(true);
         System.out.println(fileNames);
     }
-    
+
+    /**
+     * Adds a Container which includes buttons and a image.
+     * @throws IOException
+     */
     public void addContainers() throws IOException {
         GridBagConstraints constraints = new GridBagConstraints();
         for (int i = 0; i < 3; i++) {
@@ -52,6 +56,9 @@ public class ParameterPresets extends Module{
         }
     }
 
+    /**
+     * Reads and saves file names from external file.
+     */
     public void createFileNames(){
         String path = "/PPPics";
         URL url = getClass().getResource(path);
@@ -66,6 +73,9 @@ public class ParameterPresets extends Module{
         }
     }
 
+    /**
+     * Adds number indicating the right combination.
+     */
     public void addCombination(){
         GridBagConstraints constraints = new GridBagConstraints();
 
@@ -86,6 +96,9 @@ public class ParameterPresets extends Module{
         add(combination, constraints);
     }
 
+    /**
+     * Saves valid combination into a collection.
+     */
     public void createCombinations(){
         combinations.put(0, new String[]{"/PPPics/tile006.png", "/PPPics/tile003.png", "/PPPics/tile005.png"});
         combinations.put(1, new String[]{"/PPPics/tile000.png", "/PPPics/tile006.png", "/PPPics/tile007.png"});
@@ -99,6 +112,9 @@ public class ParameterPresets extends Module{
         combinations.put(9, new String[]{"/PPPics/tile001.png", "/PPPics/tile008.png", "/PPPics/tile002.png"});
     }
 
+    /**
+     * Adds a submit button.
+     */
     public void addSubmitButton(){
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;

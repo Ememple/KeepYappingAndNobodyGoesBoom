@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MemoryStageBar extends JProgressBar {
+    /**
+     * A stage bar indicating progress.
+     */
     public MemoryStageBar(){
         super(0,5);
         setValue(0);

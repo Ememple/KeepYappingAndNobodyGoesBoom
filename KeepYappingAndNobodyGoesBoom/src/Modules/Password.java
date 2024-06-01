@@ -37,6 +37,10 @@ public class Password extends Module {
         setVisible(true);
     }
 
+    /**
+     * Reads all valid passwords from an external file.
+     * @throws IOException
+     */
     public void addIntoPasswords() throws IOException {
         BufferedReader reader = FilePath.textFile("/passwords.txt");
         for (int i = 0; i < passwords.length; i++) {
@@ -44,12 +48,19 @@ public class Password extends Module {
         }
     }
 
+    /**
+     * Creates a collection of char indexes.
+     */
     public void addIntoChars(){
         for (int i = 0; i < 5; i++) {
             chars[i] = getRandom().nextInt(5);
         }
     }
 
+    /**
+     * Adds a button for changing the character.
+     * @throws IOException
+     */
     public void addUpButtons() throws IOException {
         for (int i = 0; i < 5; i++) {
             GridBagConstraints constraints = new GridBagConstraints();
@@ -66,6 +77,9 @@ public class Password extends Module {
         }
     }
 
+    /**
+     * Adds characters into the module.
+     */
     public void addCharsComponent(){
         for (int i = 0; i < 5; i++){
             GridBagConstraints constraints = new GridBagConstraints();
@@ -85,6 +99,9 @@ public class Password extends Module {
         }
     }
 
+    /**
+     * Same as the previous method.
+     */
     public void addDownButtons() throws IOException {
         for (int i = 0; i < 5; i++) {
             GridBagConstraints constraints = new GridBagConstraints();
@@ -101,6 +118,9 @@ public class Password extends Module {
         }
     }
 
+    /**
+     * Adds a submit button.
+     */
     public void addSubmitButton(){
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;

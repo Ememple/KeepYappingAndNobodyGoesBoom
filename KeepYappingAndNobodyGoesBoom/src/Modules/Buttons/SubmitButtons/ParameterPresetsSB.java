@@ -7,6 +7,9 @@ import Modules.ParameterPresets;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * Submits a selected combination of images.
+ */
 public class ParameterPresetsSB extends SubmitButton {
     ParameterPresets presets;
     public ParameterPresetsSB(ParameterPresets presets){

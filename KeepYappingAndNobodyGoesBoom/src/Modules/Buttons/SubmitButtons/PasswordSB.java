@@ -5,6 +5,9 @@ import Modules.Password;
 
 import java.awt.event.ActionEvent;
 
+/**
+ * Submits a selected combination of characters.
+ */
 public class PasswordSB extends SubmitButton {
     Password password;
 

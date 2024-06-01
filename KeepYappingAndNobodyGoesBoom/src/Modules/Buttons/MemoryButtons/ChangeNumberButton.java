@@ -7,6 +7,9 @@ import Modules.Memory;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * Changes the displayed number.
+ */
 public class ChangeNumberButton extends ModuleButton {
     Memory memory;
     int position;
@@ -23,6 +26,10 @@ public class ChangeNumberButton extends ModuleButton {
         this.position = position;
     }
 
+    /**
+     * Checks if the pressed button was the correct one.
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e){
         //System.out.println(memory.getButtons());

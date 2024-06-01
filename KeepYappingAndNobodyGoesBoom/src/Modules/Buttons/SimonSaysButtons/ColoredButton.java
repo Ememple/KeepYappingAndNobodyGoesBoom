@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 
 import static java.lang.Thread.sleep;
 
+/**
+ * Lights up when clicked.
+ */
 public class ColoredButton extends ModuleButton {
     private SimonSays simon;
     private String color;
@@ -26,7 +29,10 @@ public class ColoredButton extends ModuleButton {
         setVisible(true);
     }
 
-
+    /**
+     * Checks if pressed button was the correct one.
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e){
         try {
@@ -246,6 +252,10 @@ public class ColoredButton extends ModuleButton {
         }
     }
 
+    /**
+     * Lights up the button briefly.
+     * @throws InterruptedException
+     */
     public void flash() throws InterruptedException {
         Color background;
         switch(color){
@@ -285,6 +295,9 @@ public class ColoredButton extends ModuleButton {
         this.color = color;
     }
 
+    /**
+     * Checks if winning conditions were met.
+     */
     public void winCondition(){
         if (simon.getStage() > 4){
             simon.disableModule();

@@ -23,6 +23,9 @@ public class SimonSays extends Module{
         setVisible(true);
     }
 
+    /**
+     * Creates colored buttons.
+     */
     public void addColoredButtons(){
         GridBagConstraints constraints = new GridBagConstraints();
 
@@ -57,6 +60,10 @@ public class SimonSays extends Module{
         add(yellow, constraints);
     }
 
+    /**
+     * Adds a Led into the module.
+     * @throws IOException
+     */
     public void addLed() throws IOException {
         GridBagConstraints constraints = new GridBagConstraints();
 
@@ -73,6 +80,10 @@ public class SimonSays extends Module{
         add(led, constraints);
     }
 
+    /**
+     * Selects a random colored button.
+     * @return
+     */
     public ColoredButton randomButton(){
         return switch (getRandom().nextInt(0,4)){
             case 0 -> blue;
