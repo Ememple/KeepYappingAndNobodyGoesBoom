@@ -33,7 +33,6 @@ public class ParameterPresets extends Module{
         createCombinations();
         setBackground(Color.ORANGE);
         setVisible(true);
-        System.out.println(fileNames);
     }
 
     /**
@@ -60,14 +59,14 @@ public class ParameterPresets extends Module{
      * Reads and saves file names from external file.
      */
     public void createFileNames(){
-        String path = "/PPPics";
+        String path = "/PPPics/";
         URL url = getClass().getResource(path);
 
         if (url != null) {
             File directory = new File(url.getPath());
             if (directory.isDirectory()) {
                 for (File file : directory.listFiles()) {
-                    fileNames.add("" + file.getName());
+                    fileNames.add(path + file.getName());
                 }
             }
         }
