@@ -35,7 +35,6 @@ public class Password extends Module {
         addDownButtons();
         addSubmitButton();
         setVisible(true);
-        System.out.println(password);
     }
 
     /**

@@ -42,10 +42,6 @@ public class HorizontalWires extends JPanel{
         for (int i =0; i<wires.size(); i++){
             this.add(wires.get(i));
         }
-        System.out.println("Správný drátek");
-        for (int i=0; i<correctOrder.length; i++){
-            System.out.print(correctOrder[i]+", ");
-        }
         this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
@@ -119,7 +115,6 @@ public class HorizontalWires extends JPanel{
             }
             numberOfColors.add(count);
         }
-        System.out.println("Počet barev"+numberOfColors);
         return numberOfColors;
     }
 
