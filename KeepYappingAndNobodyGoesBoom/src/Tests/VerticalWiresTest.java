@@ -1,12 +1,10 @@
-package Modules;
+package Tests;
 
 import Frames.Bomb;
+import Modules.VerticalWires;
 
-import java.awt.*;
 import java.io.IOException;
-import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class VerticalWiresTest {
@@ -16,7 +14,7 @@ class VerticalWiresTest {
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         try {
-            verticalWires = new VerticalWires(new Bomb());
+            verticalWires = new VerticalWires();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
