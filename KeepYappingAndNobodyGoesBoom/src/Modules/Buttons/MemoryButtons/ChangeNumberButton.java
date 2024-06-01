@@ -18,6 +18,7 @@ public class ChangeNumberButton extends ModuleButton {
         this.number = number;
         setText(STR."\{this.number}");
         setFont(new Font("monospaced", Font.PLAIN, 30));
+        setBackground(Color.WHITE);
         //this.buttons = new ChangeNumberButton[5];
         this.position = position;
     }
