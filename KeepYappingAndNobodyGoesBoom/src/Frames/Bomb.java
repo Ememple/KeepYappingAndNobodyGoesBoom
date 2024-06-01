@@ -12,7 +12,7 @@ import javax.swing.*;
 /**
  * The type Bomb.
  */
-public class Bomb {
+public class Bomb implements Runnable{
     public static int strikes=0;
     public static ArrayList<Boolean> cleared = new ArrayList<>();
     JFrame bomb;
@@ -56,7 +56,7 @@ public class Bomb {
      *
      * @throws IOException the io exception
      */
-    public void start() throws IOException {
+    public void bombStart() throws IOException {
         bomb = new JFrame();
         ImageIcon imageIcon = FilePath.imageIcon("/ImageIcon.jpg");
         bomb.setTitle("Keep Talking And Nobody Explodes");
@@ -111,5 +111,14 @@ public class Bomb {
             }
         }
         return null;
+    }
+
+    @Override
+    public void run() {
+        try {
+            bombStart();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
