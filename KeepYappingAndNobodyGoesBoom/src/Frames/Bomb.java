@@ -89,34 +89,27 @@ public class Bomb {
         Random random = new Random();
         switch (random.nextInt(0,7)){
             case 0 -> {
-                System.out.println("vertical");
                 return new VerticalWires();
             }
             case 1 -> {
-                System.out.println("password");
                 return new Password(this);
             }
             case 2 -> {
-                System.out.println("memory");
                 return new Memory(this);
             }
             case 3 -> {
-                System.out.println("pp");
                 return new ParameterPresets(this);
             }
             case 4 -> {
-                System.out.println("horizontal");
                 HorizontalWires horizontalWires= new HorizontalWires();
                 Thread horizontalWiresThread = new Thread(horizontalWires);
                 horizontalWiresThread.start();
                 return horizontalWires;
             }
             case 5 -> {
-                System.out.println("simon");
                 return new SimonSays(this);
             }
             case 6 -> {
-                System.out.println("symbols");
                 return new Symbols();
             }
         }
