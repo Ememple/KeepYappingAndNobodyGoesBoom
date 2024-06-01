@@ -32,7 +32,7 @@ public class Bomb implements Runnable{
         }
         else {
             strikes++;
-            System.out.println(STR."Počet chyb \{strikes}");
+            System.out.println("Počet chyb" + strikes);
         }
     }
 
@@ -95,7 +95,8 @@ public class Bomb implements Runnable{
                 return new Memory(this);
             }
             case 3 -> {
-                return new ParameterPresets(this);
+                return new Symbols();
+                //return new ParameterPresets(this);
             }
             case 4 -> {
                 HorizontalWires horizontalWires= new HorizontalWires();

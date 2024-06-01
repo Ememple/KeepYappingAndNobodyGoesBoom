@@ -15,11 +15,11 @@ public class ChangeNumberButton extends ModuleButton {
     int position;
     int number;
 
-    public ChangeNumberButton(Memory memory, int number, int position){
+    public ChangeNumberButton(Memory memory, int number, int position) {
         super();
         this.memory = memory;
         this.number = number;
-        setText(STR."\{this.number}");
+        setText("" + this.number);
         setFont(new Font("monospaced", Font.PLAIN, 30));
         setBackground(Color.WHITE);
         //this.buttons = new ChangeNumberButton[5];
@@ -28,167 +28,168 @@ public class ChangeNumberButton extends ModuleButton {
 
     /**
      * Checks if the pressed button was the correct one.
+     *
      * @param e the event to be processed
      */
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         //System.out.println(memory.getButtons());
-        switch(memory.getStage()){
+        switch (memory.getStage()) {
             case 1 -> {
-                switch(memory.getNumberDisplay().getText()){
+                switch (memory.getNumberDisplay().getText()) {
                     case "1" -> {
-                        if (number == 2){
+                        if (number == 2) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (position == 1){
+                        if (position == 1) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "3" -> {
-                        if (position == 0){
+                        if (position == 0) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "4" -> {
-                        if (number == 4){
+                        if (number == 4) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                 }
             }
-            case 2 ->{
-                switch(memory.getNumberDisplay().getText()){
+            case 2 -> {
+                switch (memory.getNumberDisplay().getText()) {
                     case "1" -> {
-                        if (this.number == memory.getButtons().get(1).number){
+                        if (this.number == memory.getButtons().get(1).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (number == 3){
+                        if (number == 3) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "3" -> {
-                        if (position == 0){
+                        if (position == 0) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "4" -> {
-                        if (this.position == memory.getButtons().get(1).position){
+                        if (this.position == memory.getButtons().get(1).position) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                 }
             }
-            case 3 ->{
-                switch(memory.getNumberDisplay().getText()){
+            case 3 -> {
+                switch (memory.getNumberDisplay().getText()) {
                     case "1" -> {
-                        if (this.position == memory.getButtons().get(2).position){
+                        if (this.position == memory.getButtons().get(2).position) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (this.position == memory.getButtons().get(1).position){
+                        if (this.position == memory.getButtons().get(1).position) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "3" -> {
-                        if (this.number == memory.getButtons().get(1).number){
+                        if (this.number == memory.getButtons().get(1).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "4" -> {
-                        if (this.number == 1){
+                        if (this.number == 1) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                 }
             }
-            case 4 ->{
-                switch(memory.getNumberDisplay().getText()){
+            case 4 -> {
+                switch (memory.getNumberDisplay().getText()) {
                     case "1" -> {
-                        if (this.number == memory.getButtons().get(1).number){
+                        if (this.number == memory.getButtons().get(1).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (this.number == memory.getButtons().get(2).number){
+                        if (this.number == memory.getButtons().get(2).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "3" -> {
-                        if (this.position == 1){
+                        if (this.position == 1) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "4" -> {
-                        if (this.position == memory.getButtons().get(1).position){
+                        if (this.position == memory.getButtons().get(1).position) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                 }
             }
-            case 5 ->{
-                switch(memory.getNumberDisplay().getText()){
+            case 5 -> {
+                switch (memory.getNumberDisplay().getText()) {
                     case "1" -> {
-                        if (this.number == memory.getButtons().get(1).number){
+                        if (this.number == memory.getButtons().get(1).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "2" -> {
-                        if (this.number == memory.getButtons().get(3).number){
+                        if (this.number == memory.getButtons().get(3).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "3" -> {
-                        if (this.position == memory.getButtons().get(1).position){
+                        if (this.position == memory.getButtons().get(1).position) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
                     case "4" -> {
-                        if (this.number == memory.getButtons().get(2).number){
+                        if (this.number == memory.getButtons().get(2).number) {
                             nextStage();
-                        }else {
+                        } else {
                             resetStage();
                         }
                     }
@@ -197,20 +198,20 @@ public class ChangeNumberButton extends ModuleButton {
         }
     }
 
-    public void nextStage(){
+    public void nextStage() {
         memory.getButtons().put(memory.getStage(), this);
         memory.removeChangeNumberButtons();
         memory.addChangeNumberButtons();
-        memory.setStage(memory.getStage()+1);
+        memory.setStage(memory.getStage() + 1);
         memory.newDisplay();
-        memory.getMSB().setValue(memory.getStage()-1);
-        if (memory.getMSB().getValue() == 5){
+        memory.getMSB().setValue(memory.getStage() - 1);
+        if (memory.getMSB().getValue() == 5) {
             memory.disableModule();
             Bomb.cleared.add(true);
         }
     }
 
-    public void resetStage(){
+    public void resetStage() {
         memory.removeChangeNumberButtons();
         memory.addChangeNumberButtons();
         Bomb.strikePlus();
@@ -218,10 +219,5 @@ public class ChangeNumberButton extends ModuleButton {
         memory.newDisplay();
         memory.getMSB().setValue(0);
         //clearNumbers();
-    }
-
-    @Override
-    public String toString() {
-        return STR."ChangeNumberButton{position=\{position}, number=\{number}\{'}'}";
     }
 }

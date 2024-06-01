@@ -92,7 +92,7 @@ public class Password extends Module {
 
             constraints.weightx = 1;
             constraints.weighty = 1;
-            JLabel character = new JLabel(STR."\{password.charAt(chars[i])}");
+            JLabel character = new JLabel("" + password.charAt(chars[i]));
             character.setFont(new Font("monospaced", Font.PLAIN, 30));
             characters.add(character);
             add(characters.get(i), constraints);

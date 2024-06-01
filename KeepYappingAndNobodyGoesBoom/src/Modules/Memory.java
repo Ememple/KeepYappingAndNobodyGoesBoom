@@ -115,14 +115,14 @@ public class Memory extends Module{
      * Creates number for display.
      */
     public void initialize_displayed_number() {
-        numberDisplay = new JLabel(STR."\{numbers.get(getRandom().nextInt(0, 4))}");
+        numberDisplay = new JLabel(""+numbers.get(getRandom().nextInt(0, 4)));
     }
 
     /**
      * Creates new number for display.
      */
     public void newDisplay(){
-        numberDisplay.setText(STR."\{numbers.get(getRandom().nextInt(0, 4))}");
+        numberDisplay.setText("" + numbers.get(getRandom().nextInt(0, 4)));
     }
 
     public JLabel getNumberDisplay(){

@@ -67,7 +67,7 @@ public class ParameterPresets extends Module{
             File directory = new File(url.getPath());
             if (directory.isDirectory()) {
                 for (File file : directory.listFiles()) {
-                    fileNames.add(STR."\{path}/\{file.getName()}");
+                    fileNames.add("" + file.getName());
                 }
             }
         }
@@ -89,7 +89,7 @@ public class ParameterPresets extends Module{
         constraints.weightx = 3;
         constraints.weighty = 1;
 
-        combination.setText(STR."\{getRandom().nextInt(0, 10)}");
+        combination.setText("" + getRandom().nextInt(0, 10));
         combination.setFont(new Font("monospaced", Font.PLAIN, 100));
         combination.setForeground(Color.BLACK);
 
