@@ -4,8 +4,6 @@ import HelpClasses.FilePath;
 import Modules.*;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -34,7 +32,7 @@ public class Bomb {
         }
         else {
             strikes++;
-            System.out.println("Počet chyb "+strikes);
+            System.out.println(STR."Počet chyb \{strikes}");
         }
     }
 

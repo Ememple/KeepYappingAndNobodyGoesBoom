@@ -16,7 +16,7 @@ public class ChangeNumberButton extends ModuleButton {
         super();
         this.memory = memory;
         this.number = number;
-        setText("" + this.number);
+        setText(STR."\{this.number}");
         setFont(new Font("monospaced", Font.PLAIN, 30));
         //this.buttons = new ChangeNumberButton[5];
         this.position = position;
@@ -197,7 +197,7 @@ public class ChangeNumberButton extends ModuleButton {
         memory.newDisplay();
         memory.getMSB().setValue(memory.getStage()-1);
         if (memory.getMSB().getValue() == 5){
-            memory.disable();
+            memory.disableModule();
             memory.getBomb().winCondition();
         }
     }

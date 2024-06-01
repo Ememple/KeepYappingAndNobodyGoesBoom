@@ -23,7 +23,7 @@ public abstract class Module extends JPanel {
         return random;
     }
 
-    public void disable(){
+    public void disableModule(){
         for (int i = 0; i < getComponents().length; i++) {
             getComponent(i).setEnabled(false);
         }

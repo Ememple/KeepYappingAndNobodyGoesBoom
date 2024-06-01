@@ -1,5 +1,6 @@
 package Modules;
 
+import Frames.Bomb;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ class SymbolsTest {
     Symbols symbols;
     @BeforeEach
     void setUp() {
-        symbols = new Symbols();
+        symbols = new Symbols(new Bomb());
     }
 
     @Test

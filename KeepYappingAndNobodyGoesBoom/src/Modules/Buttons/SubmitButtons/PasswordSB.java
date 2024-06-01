@@ -1,7 +1,6 @@
 package Modules.Buttons.SubmitButtons;
 
 import Frames.Bomb;
-import Modules.Module;
 import Modules.Password;
 
 import java.awt.event.ActionEvent;
@@ -23,7 +22,7 @@ public class PasswordSB extends SubmitButton {
             }
         }
         if (match){
-            password.disable();
+            password.disableModule();
             password.getBomb().winCondition();
         } else {
             Bomb.strikePlus();

@@ -30,6 +30,7 @@ public class ParameterPresetsSB extends SubmitButton {
                 }
             }
         }
+
         if (correct){
             for (Component label : presets.getComponents()){
                 if (label instanceof PPContainer){
@@ -38,6 +39,7 @@ public class ParameterPresetsSB extends SubmitButton {
                     }
                 }
             }
+            presets.disableModule();
             presets.getBomb().winCondition();
         }
     }

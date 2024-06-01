@@ -1,5 +1,7 @@
 package Modules;
 
+import Frames.Bomb;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
@@ -14,7 +16,7 @@ class VerticalWiresTest {
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         try {
-            verticalWires = new VerticalWires();
+            verticalWires = new VerticalWires(new Bomb());
 
         } catch (IOException e) {
             throw new RuntimeException(e);

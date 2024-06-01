@@ -292,7 +292,7 @@ public class ColoredButton extends ModuleButton {
 
     public void winCondition(){
         if (simon.getStage() > 4){
-            simon.disable();
+            simon.disableModule();
             simon.getBomb().winCondition();
         }
     }
