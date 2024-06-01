@@ -15,6 +15,7 @@ public class ColoredButton extends ModuleButton {
         this.simon = simon;
         this.color = color;
         setText(" ");
+
         setFont(new Font("monospaced", Font.PLAIN, 100));
         setBackground(background);
         setSize(250, 250);
@@ -82,7 +83,7 @@ public class ColoredButton extends ModuleButton {
 
 
                 case 1 -> {
-                    switch (simon.getLed().getColor()){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){ //simon.getLed().getColor().equals(color)
                         case "red" -> {
                             if (color.equals("yellow")){
                                 nextStage();
@@ -128,7 +129,7 @@ public class ColoredButton extends ModuleButton {
 
 
                 case 2 -> {
-                    switch (simon.getLed().getColor()){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){ //simon.getLed().getColor().equals(color)
                         case "red" -> {
                             if (color.equals("green")){
                                 nextStage();
@@ -175,7 +176,7 @@ public class ColoredButton extends ModuleButton {
 
 
                 case 3 -> {
-                    switch (simon.getLed().getColor()){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){ //simon.getLed().getColor().equals(color)
                         case "red" -> {
                             if (color.equals("red")){
                                 nextStage();
@@ -250,7 +251,7 @@ public class ColoredButton extends ModuleButton {
         setVisible(true);
         new Thread(()->{
             try {
-                Thread.sleep(250);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

@@ -48,19 +48,17 @@ public class Bomb {
         bomb.setResizable(true);
         bomb.setLayout(new GridLayout(2,3));
         BombTimer bombTimer = new BombTimer();
-        HorizontalWires horizontalWires= new HorizontalWires();
+        /*HorizontalWires horizontalWires= new HorizontalWires();
         Thread horizontalWiresThread = new Thread(horizontalWires);
-        horizontalWiresThread.start();
-        Symbols symbols = new Symbols();
-        VerticalWires verticalWires = new VerticalWires();
+        horizontalWiresThread.start();*/
+
         bomb.add(bombTimer);
-        bomb.add(horizontalWires);
-        bomb.add(new Password());
-        bomb.add(new Memory());
-        bomb.add(symbols);
-        bomb.add(verticalWires);
-        bomb.add(new ParameterPresets());
-        bomb.add(new SimonSays());
+        for (int i = 0; i < 7; i++) {
+            bomb.add(randomModule());
+        }
+        for (Component component : bomb.getComponents()){
+            System.out.println(component.toString());
+        }
         bomb.setVisible(true);
     }
 
@@ -73,25 +71,27 @@ public class Bomb {
      */
     public Component randomModule() throws IOException{
         Random random = new Random();
-        switch (random.nextInt(0,5)+1){
-            case 1 -> {
-                //dráty
-
+        switch (random.nextInt(0,7)){
+            case 0 -> {
+                return new HorizontalWires();
             }
-            case 2 -> {
-                //heslo
+            case 1 -> {
                 return new Password();
             }
-            case 3 -> {
-                //paměť
+            case 2 -> {
                 return new Memory();
             }
-            case 4 -> {
-                //předvolby parametrů
+            case 3 -> {
                 return new ParameterPresets();
             }
+            case 4 -> {
+                return new VerticalWires();
+            }
             case 5 -> {
-                //modul 5
+                return new SimonSays();
+            }
+            case 6 -> {
+                return new Symbols();
             }
         }
         return null;
