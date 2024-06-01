@@ -1,14 +1,13 @@
-package Modules.Buttons.SimonSaysButtons;
+package Tests;
 
 import Frames.Bomb;
+import Modules.Buttons.SimonSaysButtons.ColoredButton;
 import Modules.SimonSays;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.io.IOException;
 
-import static javax.swing.text.StyleConstants.Background;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ColoredButtonTest {

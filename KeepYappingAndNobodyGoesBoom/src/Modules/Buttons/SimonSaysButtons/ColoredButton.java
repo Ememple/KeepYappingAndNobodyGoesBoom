@@ -263,7 +263,6 @@ public class ColoredButton extends ModuleButton {
                 background = null;
             }
         }
-        //System.out.println("Flash color " + color);
         setBackground(background);
         repaint();
         setVisible(true);
@@ -293,7 +292,7 @@ public class ColoredButton extends ModuleButton {
     public void winCondition(){
         if (simon.getStage() > 4){
             simon.disableModule();
-            simon.getBomb().winCondition();
+            Bomb.cleared.add(true);
         }
     }
 }

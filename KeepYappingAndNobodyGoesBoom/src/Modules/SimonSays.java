@@ -35,25 +35,25 @@ public class SimonSays extends Module{
         constraints.weightx = 2;
         constraints.weighty = 2;
 
-        blue = new ColoredButton(this, Color.LIGHT_GRAY, "blue");
+        blue = new ColoredButton(this, new Color(0, 8, 113, 255), "blue");
         add(blue, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
 
-        red = new ColoredButton(this, Color.LIGHT_GRAY, "red");
+        red = new ColoredButton(this, new Color(155, 0, 0), "red");
         add(red, constraints);
 
         constraints.gridx = 1;
         constraints.gridy = 3;
 
-        green = new ColoredButton(this, Color.LIGHT_GRAY, "green");
+        green = new ColoredButton(this, new Color(1, 100, 19), "green");
         add(green, constraints);
 
         constraints.gridx = 2;
         constraints.gridy = 2;
 
-        yellow = new ColoredButton(this, Color.LIGHT_GRAY, "yellow");
+        yellow = new ColoredButton(this, new Color(164, 162, 2), "yellow");
         add(yellow, constraints);
     }
 

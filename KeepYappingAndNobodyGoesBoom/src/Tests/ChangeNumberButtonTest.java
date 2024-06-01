@@ -1,9 +1,8 @@
-package Modules.Buttons.MemoryButtons;
+package Tests;
 
 import Frames.Bomb;
+import Modules.Buttons.MemoryButtons.ChangeNumberButton;
 import Modules.Memory;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

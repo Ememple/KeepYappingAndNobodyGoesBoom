@@ -72,7 +72,7 @@ public class Bomb {
         horizontalWiresThread.start();*/
 
         bomb.add(bombTimer);
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 5; i++) {
             bomb.add(randomModule());
         }
         for (Component component : bomb.getComponents()){
@@ -92,31 +92,41 @@ public class Bomb {
         Random random = new Random();
         switch (random.nextInt(0,7)){
             case 0 -> {
-                return new HorizontalWires(this);
+                System.out.println("vertical");
+                return new VerticalWires();
             }
             case 1 -> {
+                System.out.println("password");
                 return new Password(this);
             }
             case 2 -> {
+                System.out.println("memory");
                 return new Memory(this);
             }
             case 3 -> {
+                System.out.println("pp");
                 return new ParameterPresets(this);
             }
             case 4 -> {
-                return new VerticalWires(this);
+                System.out.println("horizontal");
+                HorizontalWires horizontalWires= new HorizontalWires();
+                Thread horizontalWiresThread = new Thread(horizontalWires);
+                horizontalWiresThread.start();
+                return horizontalWires;
             }
             case 5 -> {
+                System.out.println("simon");
                 return new SimonSays(this);
             }
             case 6 -> {
-                return new Symbols(this);
+                System.out.println("symbols");
+                return new Symbols();
             }
         }
         return null;
     }
 
-    public void winCondition(){
+    /*public void winCondition(){
         boolean win = true;
         for (Component component : bomb.getComponents()){
             if (!(component instanceof BombTimer)){
@@ -129,5 +139,5 @@ public class Bomb {
         if (win){
             System.out.println("You disarmed the bomb!");
         }
-    }
+    }*/
 }

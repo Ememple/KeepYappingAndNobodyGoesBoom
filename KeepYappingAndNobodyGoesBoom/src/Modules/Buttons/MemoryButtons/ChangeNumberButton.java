@@ -198,7 +198,7 @@ public class ChangeNumberButton extends ModuleButton {
         memory.getMSB().setValue(memory.getStage()-1);
         if (memory.getMSB().getValue() == 5){
             memory.disableModule();
-            memory.getBomb().winCondition();
+            Bomb.cleared.add(true);
         }
     }
 

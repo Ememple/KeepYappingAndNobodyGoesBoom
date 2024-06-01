@@ -40,7 +40,7 @@ public class ParameterPresetsSB extends SubmitButton {
                 }
             }
             presets.disableModule();
-            presets.getBomb().winCondition();
+            Bomb.cleared.add(true);
         }
     }
 

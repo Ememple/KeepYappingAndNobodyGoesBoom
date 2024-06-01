@@ -23,7 +23,7 @@ public class PasswordSB extends SubmitButton {
         }
         if (match){
             password.disableModule();
-            password.getBomb().winCondition();
+            Bomb.cleared.add(true);
         } else {
             Bomb.strikePlus();
         }

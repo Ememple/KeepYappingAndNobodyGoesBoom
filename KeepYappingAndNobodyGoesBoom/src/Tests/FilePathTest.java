@@ -1,10 +1,9 @@
-package HelpClasses;
+package Tests;
 
+
+import HelpClasses.FilePath;
 
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;

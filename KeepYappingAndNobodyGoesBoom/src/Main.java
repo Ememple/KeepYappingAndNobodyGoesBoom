@@ -1,4 +1,5 @@
 import Frames.Menu;
+import Frames.WinScreen;
 
 import java.io.IOException;
 
