@@ -24,9 +24,9 @@ public class Password extends Module {
         super(bomb);
         length = 5;
         chars = new int[length];
-        passwords = new String[35];
+        passwords = new String[34];
         addIntoPasswords();
-        password = passwords[getRandom().nextInt(35)];
+        password = passwords[getRandom().nextInt(34)];
         characters = new ArrayList<>();
         addIntoChars();
         setLayout(new GridBagLayout());
