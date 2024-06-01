@@ -14,7 +14,7 @@ public class Menu{
     /**
      * Creates menu.
      */
-    public void createMenu(){
+    public void createMenu() throws IOException {
         JFrame mainFrame = new JFrame();
         JLabel label = new JLabel("KeepYappingAndNobodyGoesBOOM");
         ImageIcon imageIcon;
@@ -43,13 +43,14 @@ public class Menu{
         mainPanel.setBounds(0,0,1920,1080);
 
         //Label gameName
-        gameName.setText("Keep Talking And Nobody Explodes");
-        gameName.setBounds((1920/2-400),(1080/2-300),800,50);
+        gameName.setText("Keep Yapping And Nobody Goes Boom");
+        gameName.setBounds((1920/2-400),(1080/2-300),900,50);
         gameName.setFont(new Font("Calibri",Font.BOLD,50));
         gameName.setForeground(Color.WHITE);
         mainPanel.add(gameName);
 
         //Button manual
+        JLayeredPane jLayeredPane = new JLayeredPane();
         buttonManual.addActionListener(buttonManual);
         buttonManual.setBounds((1920/2-100),(1080/2-100),200,100);
         buttonManual.setFont(new Font("Calibri",Font.BOLD,25));
@@ -64,6 +65,11 @@ public class Menu{
         buttonPlay.setBackground(Color.WHITE);
         buttonPlay.setFocusable(false);
         mainPanel.add(buttonPlay);
+
+        ImageIcon backgroundImage = FilePath.imageIcon("/menu.png");
+        JLabel background = new JLabel(backgroundImage);
+        background.setBounds(0,0,1920,1080);
+        mainPanel.add(background);
 
 
         mainFrame.add(mainPanel);
