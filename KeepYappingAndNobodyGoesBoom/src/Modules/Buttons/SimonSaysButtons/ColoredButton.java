@@ -12,14 +12,16 @@ import static java.lang.Thread.sleep;
 public class ColoredButton extends ModuleButton {
     private SimonSays simon;
     private String color;
+    private Color original_background;
     public ColoredButton(SimonSays simon, Color background, String color){
         super();
         this.simon = simon;
         this.color = color;
+        this.original_background = background;
         setText(" ");
 
-        setFont(new Font("monospaced", Font.PLAIN, 100));
-        setBackground(background);
+        setFont(new Font("monospaced", Font.PLAIN, 80));
+        setBackground(original_background);
         setSize(250, 250);
         setVisible(true);
     }
@@ -28,7 +30,7 @@ public class ColoredButton extends ModuleButton {
     @Override
     public void actionPerformed(ActionEvent e){
         try {
-            System.out.println(STR."Simon stage = \{simon.getStage()}");
+            //System.out.println(STR."Simon stage = \{simon.getStage()}");
             String matchColor;
             if (simon.getStage() == 0){
                 matchColor = simon.getLed().getColor();
@@ -247,32 +249,26 @@ public class ColoredButton extends ModuleButton {
     public void flash() throws InterruptedException {
         Color background;
         switch(color){
-            case "blue" -> {
-                background = Color.BLUE;
-            }
-            case "red" -> {
-                background = Color.RED;
-            }
-            case "green" -> {
-                background = Color.GREEN;
-            }
-            case "yellow" -> {
-                background = Color.YELLOW;
-            }
-            default -> {
-                background = null;
-            }
+            case "blue" -> background = Color.BLUE;
+
+            case "red" -> background = Color.RED;
+
+            case "green" -> background = Color.GREEN;
+
+            case "yellow" -> background = Color.YELLOW;
+
+            default -> background = null;
         }
         setBackground(background);
         repaint();
         setVisible(true);
         new Thread(()->{
             try {
-                sleep(250);
+                sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            ColoredButton.this.setBackground(Color.LIGHT_GRAY);
+            ColoredButton.this.setBackground(this.original_background);
         }).start();
         setVisible(true);
     }

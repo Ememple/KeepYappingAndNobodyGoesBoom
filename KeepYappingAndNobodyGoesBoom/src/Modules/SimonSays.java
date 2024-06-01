@@ -27,31 +27,31 @@ public class SimonSays extends Module{
         GridBagConstraints constraints = new GridBagConstraints();
 
         constraints.gridx = 1;
-        constraints.gridy = 1;
+        constraints.gridy = 0;
 
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
 
-        constraints.weightx = 2;
-        constraints.weighty = 2;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
 
         blue = new ColoredButton(this, new Color(0, 8, 113, 255), "blue");
         add(blue, constraints);
 
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
 
         red = new ColoredButton(this, new Color(155, 0, 0), "red");
         add(red, constraints);
 
         constraints.gridx = 1;
-        constraints.gridy = 3;
+        constraints.gridy = 2;
 
         green = new ColoredButton(this, new Color(1, 100, 19), "green");
         add(green, constraints);
 
         constraints.gridx = 2;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
 
         yellow = new ColoredButton(this, new Color(164, 162, 2), "yellow");
         add(yellow, constraints);

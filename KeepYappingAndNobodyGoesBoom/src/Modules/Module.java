@@ -26,9 +26,11 @@ public abstract class Module extends JPanel {
     public void disableModule(){
         for (int i = 0; i < getComponents().length; i++) {
             getComponent(i).setEnabled(false);
+            //getComponent(i).setBackground(Color.GREEN);
         }
         setEnabled(false);
         //solved = true;
+        //setBackground(Color.GREEN);
     }
 
     public Bomb getBomb() {
