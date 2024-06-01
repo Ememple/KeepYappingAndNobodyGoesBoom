@@ -24,7 +24,7 @@ public class DownButton extends ModuleButton {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int new_char = (password.getChars()[char_index]+1) % 5;
+        char new_char = (char)((password.getChars()[char_index]+1) % 5);
         password.getChars()[char_index] = new_char;
         password.getCharacters().get(char_index).setText("" + password.getPassword().charAt(new_char));
         //System.out.println("performed");

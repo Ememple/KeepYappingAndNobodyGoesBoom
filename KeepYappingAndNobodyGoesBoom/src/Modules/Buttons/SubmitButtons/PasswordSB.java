@@ -20,10 +20,13 @@ public class PasswordSB extends SubmitButton {
     public void actionPerformed(ActionEvent e) {
         boolean match = true;
         for (int i = 0; i < password.getPassword().length(); i++) {
-            if (password.getChars()[i] != i){
+            System.out.println("my char " + password.getCharacters().get(i).getText());
+            System.out.println("password " + password.getPassword().charAt(i));
+            if (!password.getCharacters().get(i).getText().equals("" + password.getPassword().charAt(i))){
                 match = false;
             }
         }
+
         if (match){
             password.disableModule();
             Bomb.cleared.add(true);
