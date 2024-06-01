@@ -20,7 +20,7 @@ public class ColoredButton extends ModuleButton {
         this.original_background = background;
         setText(" ");
 
-        setFont(new Font("monospaced", Font.PLAIN, 100));
+        setFont(new Font("monospaced", Font.PLAIN, 80));
         setBackground(original_background);
         setSize(250, 250);
         setVisible(true);
