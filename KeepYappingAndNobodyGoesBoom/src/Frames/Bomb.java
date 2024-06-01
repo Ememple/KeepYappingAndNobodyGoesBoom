@@ -67,9 +67,6 @@ public class Bomb {
         bomb.setResizable(true);
         bomb.setLayout(new GridLayout(2,3));
         BombTimer bombTimer = new BombTimer();
-        /*HorizontalWires horizontalWires= new HorizontalWires();
-        Thread horizontalWiresThread = new Thread(horizontalWires);
-        horizontalWiresThread.start();*/
 
         bomb.add(bombTimer);
         for (int i = 0; i < 5; i++) {
@@ -125,19 +122,4 @@ public class Bomb {
         }
         return null;
     }
-
-    /*public void winCondition(){
-        boolean win = true;
-        for (Component component : bomb.getComponents()){
-            if (!(component instanceof BombTimer)){
-                if ( component.isEnabled()){
-                    win = false;
-                    break;
-                }
-            }
-        }
-        if (win){
-            System.out.println("You disarmed the bomb!");
-        }
-    }*/
 }

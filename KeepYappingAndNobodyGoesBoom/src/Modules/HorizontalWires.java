@@ -192,7 +192,6 @@ public class HorizontalWires extends JPanel implements Runnable{
                 this.getComponent(j).setBackground(Color.GRAY);
                 this.getComponent(j).setEnabled(false);
             }
-            Bomb.cleared.add(true);
         }
         else {
             Bomb.strikePlus();

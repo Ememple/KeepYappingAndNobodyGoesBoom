@@ -4,7 +4,6 @@ import Frames.Bomb;
 import HelpClasses.FilePath;
 import Modules.Buttons.SymbolsButton.SymbolButton;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -155,7 +154,6 @@ public class Symbols extends JPanel {
                 this.getComponent(j).setEnabled(false);
             }
             setEnabled(false);
-            //bomb.winCondition();
             Bomb.cleared.add(true);
             System.out.println("Cleared Symbols");
         }
