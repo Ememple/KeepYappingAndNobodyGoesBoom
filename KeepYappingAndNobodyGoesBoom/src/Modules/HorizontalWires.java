@@ -13,7 +13,7 @@ import java.util.Random;
 /**
  * The type Horizontal wires.
  */
-public class HorizontalWires extends JPanel implements Runnable{
+public class HorizontalWires extends JPanel{
     private final ArrayList<HorizontalWireButton> wires = new ArrayList<>();
     private int[] correctOrder;
 
@@ -21,6 +21,31 @@ public class HorizontalWires extends JPanel implements Runnable{
      * creates Horizontal wires.
      */
     public HorizontalWires() {
+        createWires(wires);
+        check(wires);
+        while (true){
+            int helpNumber=0;
+            if (correctOrder!=null){
+                for (int i=0; i<correctOrder.length;i++){
+                    if (correctOrder[i]==5) {
+                        helpNumber++;
+                    }
+                }
+                if (helpNumber>1){
+                    check(wires);
+                }
+                else {
+                    break;
+                }
+            }
+        }
+        for (int i =0; i<wires.size(); i++){
+            this.add(wires.get(i));
+        }
+        System.out.println("Správný drátek");
+        for (int i=0; i<correctOrder.length; i++){
+            System.out.print(correctOrder[i]+", ");
+        }
         this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
@@ -66,9 +91,7 @@ public class HorizontalWires extends JPanel implements Runnable{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     button.setValue(5);
-                    int[]constant =check(wires);
-                    button.setEnabled(false);
-                    control(wires,constant);
+                    control(wires,check(wires));
                 }
             });
             wires.add(button);
@@ -87,15 +110,16 @@ public class HorizontalWires extends JPanel implements Runnable{
         for (int i =0; i<correctOrder.length; i++){
             correctOrder[i]=wires.get(i).getValue();
         }
-        int count=0;
-        for(int i =0; i<wires.size();i++){
+        for(int i =0; i<5;i++){
+            int count=0;
             for(int j =0; j<wires.size();j++){
-                if (wires.get(i).getValue()==j){
+                if (wires.get(j).getValue()==i){
                     count++;
                 }
-                numberOfColors.add(count);
             }
+            numberOfColors.add(count);
         }
+        System.out.println("Počet barev"+numberOfColors);
         return numberOfColors;
     }
 
@@ -145,7 +169,7 @@ public class HorizontalWires extends JPanel implements Runnable{
                 if (wires.get(4).getValue()==3){
                     correctOrder[3]=5;
                 }
-                else if (countOfColors.get(0)==1 && countOfColors.get(2)>2) {
+                else if (countOfColors.get(0)==1 && countOfColors.get(2)>1) {
                     correctOrder[0]=5;
                 }
                 else if (countOfColors.get(3)==0) {
@@ -182,7 +206,7 @@ public class HorizontalWires extends JPanel implements Runnable{
      */
     public void control(ArrayList<HorizontalWireButton> wires, int[] correctOrder){
         int helpInt=0;
-        for (int i =0; i<wires.size();i++){
+        for (int i =0; i<correctOrder.length;i++){
             if (wires.get(i).getValue()==correctOrder[i]){
                 helpInt++;
             }
@@ -201,30 +225,5 @@ public class HorizontalWires extends JPanel implements Runnable{
             }
         }
         Bomb.cleared.add(true);
-    }
-    @Override
-    public void run() {
-        createWires(wires);
-        check(wires);
-        while (true){
-            int helpNumber=0;
-            if (correctOrder!=null){
-                for (int i=0; i<correctOrder.length;i++){
-                    if (correctOrder[i]==5) {
-                        helpNumber++;
-                    }
-                }
-                if (helpNumber>1){
-                    check(wires);
-                }
-                else {
-                    break;
-                }
-            }
-        }
-        for (int i =0; i<wires.size(); i++){
-            this.add(wires.get(i));
-        }
-
     }
 }

@@ -38,7 +38,7 @@ public class Bomb implements Runnable{
     /**
      * Check if all modules are cleared.
      */
-    public static void checkAllCleared(){
+    public static void checkAllCleared(Timer timer){
         int winCondition=0;
         for (int i=0; i<5; i++){
             if (cleared.get(i)==true){
@@ -47,6 +47,7 @@ public class Bomb implements Runnable{
         }
         if (winCondition==5){
             WinScreen winScreen = new WinScreen();
+            timer.stop();
         }
     }
 
@@ -94,14 +95,10 @@ public class Bomb implements Runnable{
                 return new Memory(this);
             }
             case 3 -> {
-                //return new Symbols();
                 return new ParameterPresets(this);
             }
             case 4 -> {
-                HorizontalWires horizontalWires= new HorizontalWires();
-                Thread horizontalWiresThread = new Thread(horizontalWires);
-                horizontalWiresThread.start();
-                return horizontalWires;
+                return new HorizontalWires();
             }
             case 5 -> {
                 return new SimonSays(this);

@@ -16,6 +16,11 @@ public class BombTimer extends JPanel{
      * The Strikes.
      */
     public ArrayList<JLabel> strikes = new ArrayList<>();
+
+    /**
+     * The Timer.
+     */
+    public Timer timer;
     /**
      * The Seconds.
      */
@@ -43,7 +48,7 @@ public class BombTimer extends JPanel{
     public BombTimer() {
         JLabel timeLabel = new JLabel();
 
-        Timer timer = new Timer(100, new ActionListener() {
+        timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (elapsedTime!=0){
@@ -56,8 +61,7 @@ public class BombTimer extends JPanel{
 
                     timeLabel.setText(minutesString + ":" + secondsString );
                     if (Bomb.cleared.size()==5){
-                        System.out.println("Yippe");
-                        Bomb.checkAllCleared();
+                        Bomb.checkAllCleared(timer);
                     }
                 }
                 else {
@@ -65,8 +69,8 @@ public class BombTimer extends JPanel{
                 }
                 strikeAdd(Bomb.strikes);
             }
-        });
 
+        });
         this.setLayout(new GridBagLayout());
 
         //Time label
