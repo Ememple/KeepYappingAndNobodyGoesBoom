@@ -72,9 +72,6 @@ public class Bomb {
         for (int i = 0; i < 5; i++) {
             bomb.add(randomModule());
         }
-        for (Component component : bomb.getComponents()){
-            System.out.println(component.toString());
-        }
         bomb.setVisible(true);
     }
 

@@ -35,7 +35,6 @@ public class VerticalWires extends JPanel {
         createStar(random,numberOfWires);
         createCorrectOrder();
         checkIfCleared();
-        System.out.println(correctOrder);
         this.setBackground(Color.WHITE);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
     }
@@ -268,7 +267,6 @@ public class VerticalWires extends JPanel {
         }
         if (cutWires== neededCutWires){
             Bomb.cleared.add(true);
-            System.out.println("Cleared Vertical wires");
             for (int i=0; i<verticalWireButtons.size(); i++){
                 verticalWireButtons.get(i).setEnabled(false);
             }
