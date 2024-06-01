@@ -1,8 +1,9 @@
-package Modules;
+package Modules.Panels;
 
 import Modules.Buttons.ParameterPresetsButtons.*;
-import Modules.PPPic.PPPic;
 import HelpClasses.*;
+import Modules.Labels.ParameterPresetsLabels.PPPic;
+import Modules.ParameterPresets;
 
 import javax.swing.*;
 import java.awt.*;

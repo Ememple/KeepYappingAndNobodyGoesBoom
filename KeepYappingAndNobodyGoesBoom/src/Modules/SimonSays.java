@@ -1,6 +1,7 @@
 package Modules;
 
 import Modules.Buttons.SimonSaysButtons.ColoredButton;
+import Modules.Labels.SimonSaysLabels.Led;
 
 import java.awt.*;
 import java.io.IOException;

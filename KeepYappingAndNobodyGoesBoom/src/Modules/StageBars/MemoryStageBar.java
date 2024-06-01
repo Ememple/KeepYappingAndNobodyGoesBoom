@@ -1,4 +1,4 @@
-package Modules;
+package Modules.StageBars;
 
 import javax.swing.*;
 import java.awt.*;

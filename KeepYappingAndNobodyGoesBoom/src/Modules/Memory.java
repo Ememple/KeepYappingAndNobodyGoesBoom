@@ -1,6 +1,7 @@
 package Modules;
 
 import Modules.Buttons.MemoryButtons.ChangeNumberButton;
+import Modules.StageBars.MemoryStageBar;
 
 import javax.swing.*;
 import java.awt.*;

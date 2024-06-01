@@ -7,6 +7,8 @@ import Modules.SimonSays;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static java.lang.Thread.sleep;
+
 public class ColoredButton extends ModuleButton {
     private SimonSays simon;
     private String color;
@@ -39,6 +41,7 @@ public class ColoredButton extends ModuleButton {
                     switch (matchColor){
                         case "red" -> {
                             if (color.equals("blue")){
+                                winCondition();
                                 nextStage();
                                 simon.getBlue().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -49,6 +52,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "blue" -> {
                             if (color.equals("red")){
+                                winCondition();
                                 nextStage();
                                 simon.getRed().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -59,6 +63,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "green" -> {
                             if (color.equals("yellow")){
+                                winCondition();
                                 nextStage();
                                 simon.getYellow().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -69,6 +74,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "yellow" -> {
                             if (color.equals("green")){
+                                winCondition();
                                 nextStage();
                                 simon.getGreen().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -83,9 +89,10 @@ public class ColoredButton extends ModuleButton {
 
 
                 case 1 -> {
-                    switch (matchColor){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){
                         case "red" -> {
                             if (color.equals("yellow")){
+                                winCondition();
                                 nextStage();
                                 simon.getYellow().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -96,6 +103,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "blue" -> {
                             if (color.equals("green")){
+                                winCondition();
                                 nextStage();
                                 simon.getGreen().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -106,6 +114,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "green" -> {
                             if (color.equals("blue")){
+                                winCondition();
                                 nextStage();
                                 simon.getBlue().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -116,6 +125,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "yellow" -> {
                             if (color.equals("red")){
+                                winCondition();
                                 nextStage();
                                 simon.getRed().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -129,9 +139,10 @@ public class ColoredButton extends ModuleButton {
 
 
                 case 2 -> {
-                    switch (matchColor){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){
                         case "red" -> {
                             if (color.equals("green")){
+                                winCondition();
                                 nextStage();
                                 simon.getGreen().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -142,6 +153,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "blue" -> {
                             if (color.equals("red")){
+                                winCondition();
                                 nextStage();
                                 simon.getRed().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -152,6 +164,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "green" -> {
                             if (color.equals("yellow")){
+                                winCondition();
                                 nextStage();
                                 simon.getYellow().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -162,6 +175,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "yellow" -> {
                             if (color.equals("blue")){
+                                winCondition();
                                 nextStage();
                                 simon.getBlue().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -176,9 +190,10 @@ public class ColoredButton extends ModuleButton {
 
 
                 case 3 -> {
-                    switch (matchColor){ //simon.getLed().getColor().equals(color)
+                    switch (matchColor){
                         case "red" -> {
                             if (color.equals("red")){
+                                winCondition();
                                 nextStage();
                                 simon.getRed().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -189,6 +204,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "blue" -> {
                             if (color.equals("blue")){
+                                winCondition();
                                 nextStage();
                                 simon.getBlue().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -199,6 +215,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "green" -> {
                             if (color.equals("green")){
+                                winCondition();
                                 nextStage();
                                 simon.getGreen().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -209,6 +226,7 @@ public class ColoredButton extends ModuleButton {
                         }
                         case "yellow" -> {
                             if (color.equals("yellow")){
+                                winCondition();
                                 nextStage();
                                 simon.getYellow().flash();
                                 simon.setTemporary(simon.randomButton());
@@ -245,13 +263,13 @@ public class ColoredButton extends ModuleButton {
                 background = null;
             }
         }
-        System.out.println("Flash color " + color);
+        //System.out.println("Flash color " + color);
         setBackground(background);
         repaint();
         setVisible(true);
         new Thread(()->{
             try {
-                Thread.sleep(1000);
+                sleep(250);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -264,7 +282,7 @@ public class ColoredButton extends ModuleButton {
 
     public void nextStage(){
         simon.setStage(simon.getStage()+1);
-        winCondition();
+        //winCondition();
     }
 
     public String getColor() {

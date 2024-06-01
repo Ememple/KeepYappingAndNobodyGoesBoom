@@ -1,6 +1,7 @@
-package Modules;
+package Modules.Labels.SimonSaysLabels;
 
 import HelpClasses.FilePath;
+import Modules.SimonSays;
 
 import javax.swing.*;
 import java.io.IOException;
