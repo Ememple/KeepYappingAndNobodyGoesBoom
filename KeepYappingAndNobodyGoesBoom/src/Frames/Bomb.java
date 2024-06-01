@@ -2,7 +2,6 @@ package Frames;
 
 import HelpClasses.FilePath;
 import Modules.*;
-import Modules.Module;
 
 import java.awt.*;
 import java.io.IOException;
