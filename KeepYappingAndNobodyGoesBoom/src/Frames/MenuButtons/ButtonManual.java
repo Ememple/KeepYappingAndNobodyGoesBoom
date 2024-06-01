@@ -12,7 +12,7 @@ public class ButtonManual extends JButton implements ActionListener{
      @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            File manualPDF = new File("Manual.pdf");
+            File manualPDF = new File("KeepYappingAndNobodyGoesBoom/src/res/Manual.pdf");
             Desktop.getDesktop().open(manualPDF);
         }
         catch (IOException ex) {
