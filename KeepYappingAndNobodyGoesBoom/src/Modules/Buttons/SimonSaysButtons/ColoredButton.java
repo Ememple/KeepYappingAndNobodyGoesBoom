@@ -275,14 +275,11 @@ public class ColoredButton extends ModuleButton {
             }
             ColoredButton.this.setBackground(Color.LIGHT_GRAY);
         }).start();
-        //setBackground(Color.BLACK);
-        //repaint();
         setVisible(true);
     }
 
     public void nextStage(){
         simon.setStage(simon.getStage()+1);
-        //winCondition();
     }
 
     public String getColor() {
@@ -296,6 +293,7 @@ public class ColoredButton extends ModuleButton {
     public void winCondition(){
         if (simon.getStage() > 4){
             simon.disable();
+            simon.getBomb().winCondition();
         }
     }
 }

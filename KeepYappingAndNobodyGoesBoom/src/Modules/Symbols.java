@@ -21,11 +21,14 @@ public class Symbols extends JPanel {
     private final ArrayList<Integer> usedNumbers = new ArrayList<>();
     private final ArrayList<SymbolButton> symbolButtonArrayList = new ArrayList<>();
     private int onButtonNumber =0;
+    private Bomb bomb;
+    //private boolean solved;
 
     /**
      * Instantiates a new Symbols.
      */
-    public Symbols() {
+    public Symbols(Bomb bomb) {
+        this.bomb = bomb;
         try {
             createButtons();
         } catch (IOException e) {
@@ -154,6 +157,8 @@ public class Symbols extends JPanel {
                 this.getComponent(j).setBackground(Color.GREEN);
                 this.getComponent(j).setEnabled(false);
             }
+            setEnabled(false);
+            bomb.winCondition();
         }
     }
 }

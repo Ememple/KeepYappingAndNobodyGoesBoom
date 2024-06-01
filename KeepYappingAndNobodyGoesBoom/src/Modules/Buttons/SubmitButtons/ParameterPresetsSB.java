@@ -38,7 +38,7 @@ public class ParameterPresetsSB extends SubmitButton {
                     }
                 }
             }
-            //presets;
+            presets.getBomb().winCondition();
         }
     }
 

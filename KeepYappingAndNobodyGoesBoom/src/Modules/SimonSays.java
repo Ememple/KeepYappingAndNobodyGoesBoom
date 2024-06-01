@@ -1,5 +1,6 @@
 package Modules;
 
+import Frames.Bomb;
 import Modules.Buttons.SimonSaysButtons.ColoredButton;
 import Modules.Labels.SimonSaysLabels.Led;
 
@@ -12,8 +13,8 @@ public class SimonSays extends Module{
     private ColoredButton temporary;
     private int stage;
 
-    public SimonSays() throws IOException {
-        super();
+    public SimonSays(Bomb bomb) throws IOException {
+        super(bomb);
         stage = 0;
         temporary = new ColoredButton(this, null, null);
         setLayout(new GridBagLayout());

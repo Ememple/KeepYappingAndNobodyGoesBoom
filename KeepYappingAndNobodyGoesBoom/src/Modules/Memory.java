@@ -1,5 +1,6 @@
 package Modules;
 
+import Frames.Bomb;
 import Modules.Buttons.MemoryButtons.ChangeNumberButton;
 import Modules.StageBars.MemoryStageBar;
 
@@ -15,8 +16,8 @@ public class Memory extends Module{
     private HashMap<Integer, ChangeNumberButton> buttons;
     private MemoryStageBar mSB;
 
-    public Memory(){
-        super();
+    public Memory(Bomb bomb){
+        super(bomb);
         stage = 1;
         numbers = new ArrayList<>();
         setLayout(new GridBagLayout());
@@ -99,12 +100,11 @@ public class Memory extends Module{
     }
 
     public void initialize_displayed_number() {
-        //System.out.println("metoda " +  numbers);
-        numberDisplay = new JLabel("" + numbers.get(getRandom().nextInt(0, 4)));
+        numberDisplay = new JLabel(STR."\{numbers.get(getRandom().nextInt(0, 4))}");
     }
 
     public void newDisplay(){
-        numberDisplay.setText("" + numbers.get(getRandom().nextInt(0,4)));
+        numberDisplay.setText(STR."\{numbers.get(getRandom().nextInt(0, 4))}");
     }
 
     public JLabel getNumberDisplay(){
@@ -123,7 +123,7 @@ public class Memory extends Module{
         return buttons;
     }
 
-    public MemoryStageBar getmSB() {
+    public MemoryStageBar getMSB() {
         return mSB;
     }
 }

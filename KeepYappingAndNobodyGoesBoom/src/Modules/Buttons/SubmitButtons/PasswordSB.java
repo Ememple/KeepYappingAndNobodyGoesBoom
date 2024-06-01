@@ -23,10 +23,9 @@ public class PasswordSB extends SubmitButton {
             }
         }
         if (match){
-            password.state = Module.State.SUCCsesful;
             password.disable();
+            password.getBomb().winCondition();
         } else {
-            password.state = Module.State.unSUCCsesful;
             Bomb.strikePlus();
         }
     }

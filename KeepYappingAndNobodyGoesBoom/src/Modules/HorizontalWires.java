@@ -16,11 +16,15 @@ import java.util.Random;
 public class HorizontalWires extends JPanel implements Runnable{
     private final ArrayList<HorizontalWireButton> wires = new ArrayList<>();
     private int[] correctOrder;
+    private Bomb bomb;
+    private boolean solved;
 
     /**
      * creates Horizontal wires.
      */
-    public HorizontalWires() {
+    public HorizontalWires(Bomb bomb) {
+        this.bomb = bomb;
+        solved = false;
         this.setLayout(new GridLayout(6,1));
         this.setBackground(new Color(0x262626));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10, false));
@@ -188,10 +192,12 @@ public class HorizontalWires extends JPanel implements Runnable{
             }
         }
         if (helpInt==wires.size()){
-            for (int j=0; j<this.getComponents().length; j++){
+            for (int j=0; j<this.getComponents().length; j++) {
                 this.getComponent(j).setBackground(Color.GRAY);
                 this.getComponent(j).setEnabled(false);
             }
+            solved = true;
+            bomb.winCondition();
         }
         else {
             Bomb.strikePlus();

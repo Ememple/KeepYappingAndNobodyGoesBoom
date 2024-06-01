@@ -195,9 +195,10 @@ public class ChangeNumberButton extends ModuleButton {
         memory.addChangeNumberButtons();
         memory.setStage(memory.getStage()+1);
         memory.newDisplay();
-        memory.getmSB().setValue(memory.getStage()-1);
-        if (memory.getmSB().getValue() == 5){
+        memory.getMSB().setValue(memory.getStage()-1);
+        if (memory.getMSB().getValue() == 5){
             memory.disable();
+            memory.getBomb().winCondition();
         }
     }
 
@@ -207,15 +208,12 @@ public class ChangeNumberButton extends ModuleButton {
         Bomb.strikePlus();
         memory.setStage(1);
         memory.newDisplay();
-        memory.getmSB().setValue(0);
+        memory.getMSB().setValue(0);
         //clearNumbers();
     }
 
     @Override
     public String toString() {
-        return "ChangeNumberButton{" +
-                "position=" + position +
-                ", number=" + number +
-                '}';
+        return STR."ChangeNumberButton{position=\{position}, number=\{number}\{'}'}";
     }
 }

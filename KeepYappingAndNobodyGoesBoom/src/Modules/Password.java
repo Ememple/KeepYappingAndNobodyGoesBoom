@@ -1,5 +1,6 @@
 package Modules;
 
+import Frames.Bomb;
 import Modules.Buttons.PasswordButtons.DownButton;
 import Modules.Buttons.SubmitButtons.PasswordSB;
 import Modules.Buttons.PasswordButtons.UpButton;
@@ -19,8 +20,8 @@ public class Password extends Module {
     private String password;
     ArrayList<JLabel> characters;
 
-    public Password() throws IOException {
-        super();
+    public Password(Bomb bomb) throws IOException {
+        super(bomb);
         length = 5;
         chars = new int[length];
         passwords = new String[35];

@@ -1,22 +1,21 @@
 package Modules;
 
+import Frames.Bomb;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
 public abstract class Module extends JPanel {
+    private Bomb bomb;
     private Random random;
-    public State state;
-    public enum State{ //upravit názvy :skull:
-        SUCCsesful,
-        UNSLOVED,
-        unSUCCsesful
-    }
+    //private boolean solved;
 
-    public Module() {
+    public Module(Bomb bomb) {
         super();
+        this.bomb = bomb;
+        //solved = false;
         this.random = new Random();
-        state = State.UNSLOVED;
         setBorder(BorderFactory.createLineBorder(Color.BLACK,10,false));
     }
 
@@ -24,12 +23,31 @@ public abstract class Module extends JPanel {
         return random;
     }
 
-    public void createModule(){
-    }
-
     public void disable(){
         for (int i = 0; i < getComponents().length; i++) {
             getComponent(i).setEnabled(false);
         }
+        setEnabled(false);
+        //solved = true;
     }
+
+    public Bomb getBomb() {
+        return bomb;
+    }
+
+    public void setBomb(Bomb bomb) {
+        this.bomb = bomb;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    /*public boolean isSolved() {
+        return solved;
+    }
+
+    public void setSolved(boolean solved) {
+        this.solved = solved;
+    }*/
 }

@@ -1,5 +1,6 @@
 package Modules;
 
+import Frames.Bomb;
 import Modules.Buttons.SubmitButtons.ParameterPresetsSB;
 import Modules.Panels.PPContainer;
 
@@ -17,8 +18,8 @@ public class ParameterPresets extends Module{
     private JLabel combination;
     //private ParameterPresetsSB submitButton;
     
-    public ParameterPresets() throws IOException {
-        super();
+    public ParameterPresets(Bomb bomb) throws IOException {
+        super(bomb);
         fileNames = new ArrayList<>();
         combinations = new HashMap<>();
         combination = new JLabel();

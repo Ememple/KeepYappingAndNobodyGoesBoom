@@ -16,8 +16,10 @@ public class VerticalWires extends JPanel {
     private final ArrayList<VerticalWireButton> verticalWireButtons = new ArrayList<>();
     private final ArrayList<Integer> correctOrder = new ArrayList<>();
     private int onWire=0;
+    private Bomb bomb;
 
-    public VerticalWires() throws IOException {
+    public VerticalWires(Bomb bomb) throws IOException {
+        this.bomb = bomb;
         this.setLayout(new GridBagLayout());
         Random random = new Random();
         int numberOfWires =random.nextInt(3,6);
