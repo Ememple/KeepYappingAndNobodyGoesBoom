@@ -4,7 +4,10 @@ import HelpClasses.FilePath;
 import Modules.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
 
@@ -13,6 +16,7 @@ import javax.swing.*;
  */
 public class Bomb {
     public static int strikes=0;
+    public static ArrayList<Boolean> cleared = new ArrayList<>();
     JFrame bomb;
 
     /**
@@ -31,6 +35,21 @@ public class Bomb {
         else {
             strikes++;
             System.out.println("Počet chyb "+strikes);
+        }
+    }
+
+    /**
+     * Check if all modules are cleared.
+     */
+    public static void checkAllCleared(){
+        int winCondition=0;
+        for (int i=0; i<5; i++){
+            if (cleared.get(i)==true){
+                winCondition++;
+            }
+        }
+        if (winCondition==5){
+            WinScreen winScreen = new WinScreen();
         }
     }
 

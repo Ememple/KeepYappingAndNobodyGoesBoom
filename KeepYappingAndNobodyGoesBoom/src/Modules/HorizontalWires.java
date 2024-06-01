@@ -206,6 +206,8 @@ public class HorizontalWires extends JPanel implements Runnable{
                 this.getComponent(j).setEnabled(false);
             }
         }
+        Bomb.cleared.add(true);
+        System.out.println("Cleared Horizontal wires");
     }
     @Override
     public void run() {

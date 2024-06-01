@@ -55,7 +55,10 @@ public class BombTimer extends JPanel{
                     secondsString = String.format("%02d", seconds);
 
                     timeLabel.setText(minutesString + ":" + secondsString );
-
+                    if (Bomb.cleared.size()==5){
+                        System.out.println("Yippe");
+                        Bomb.checkAllCleared();
+                    }
                 }
                 else {
                     System.exit(0);

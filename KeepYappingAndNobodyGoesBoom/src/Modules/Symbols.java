@@ -159,6 +159,12 @@ public class Symbols extends JPanel {
             }
             setEnabled(false);
             bomb.winCondition();
+            Bomb.cleared.add(true);
+            System.out.println("Cleared Symbols");
         }
+    }
+
+    public ArrayList<SymbolButton> getSymbolButtonArrayList() {
+        return symbolButtonArrayList;
     }
 }
